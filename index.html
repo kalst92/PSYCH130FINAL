@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSYCH 130 — Final Exam Study Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --accent: #e8c84a;
+    --accent2: #58a6ff;
+    --accent3: #f97316;
+    --accent4: #a78bfa;
+    --accent5: #34d399;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --danger: #f85149;
+    --tag-bg: #21262d;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  header {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  header .subtitle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 300;
+  }
+
+  /* ── TABS ─────────────────────────────────── */
+  .tabs {
+    display: flex;
+    gap: 2px;
+    padding-top: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-muted);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── MAIN CONTENT ─────────────────────── */
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── DISORDER CARDS ────────────────────── */
+  .disorder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .disorder-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 4px solid var(--accent2);
+  }
+
+  .disorder-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .disorder-card.ed { border-left-color: var(--accent3); }
+  .disorder-card.other { border-left-color: var(--accent4); }
+
+  .disorder-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .disorder-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* ── ACCORDION PANELS ──────────────────── */
+  .accordion-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  .accordion-header:hover { background: var(--surface2); }
+
+  .accordion-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .accordion-header .tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .tag.blue { border-color: var(--accent2); color: var(--accent2); }
+  .tag.orange { border-color: var(--accent3); color: var(--accent3); }
+  .tag.purple { border-color: var(--accent4); color: var(--accent4); }
+  .tag.green { border-color: var(--accent5); color: var(--accent5); }
+  .tag.yellow { border-color: var(--accent); color: var(--accent); }
+
+  .chevron {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .accordion-item.open .chevron { transform: rotate(90deg); }
+
+  .accordion-body {
+    display: none;
+    padding: 0 24px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .accordion-item.open .accordion-body { display: block; }
+
+  /* ── SECTION HEADERS ───────────────────── */
+  .section-head {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 20px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── INFO BOXES ─────────────────────────── */
+  .info-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+  }
+
+  .info-box.highlight {
+    border-left: 3px solid var(--accent);
+  }
+
+  .info-box.blue {
+    border-left: 3px solid var(--accent2);
+  }
+
+  .info-box.orange {
+    border-left: 3px solid var(--accent3);
+  }
+
+  .info-box.purple {
+    border-left: 3px solid var(--accent4);
+  }
+
+  .info-box.green {
+    border-left: 3px solid var(--accent5);
+  }
+
+  .info-box strong { color: var(--accent); }
+
+  ul.clean, ol.clean {
+    padding-left: 20px;
+  }
+
+  ul.clean li, ol.clean li {
+    margin: 5px 0;
+    font-size: 0.88rem;
+  }
+
+  /* ── COMPARISON TABLE ──────────────────── */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+
+  th {
+    background: var(--surface2);
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tr:nth-child(even) td { background: #12171e; }
+  tr:hover td { background: #1c2128; }
+
+  td strong { color: var(--accent2); }
+
+  /* ── MC QUIZ ─────────────────────────────── */
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .score-badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .reset-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 16px;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.83rem;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .reset-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .question-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+  }
+
+  .question-card.correct { border-color: var(--accent5); }
+  .question-card.incorrect { border-color: var(--danger); }
+
+  .question-card .q-num {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .question-card .q-text {
+    font-size: 0.93rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .options {
+    display: grid;
+    gap: 7px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.86rem;
+    transition: all 0.15s;
+    user-select: none;
+  }
+
+  .option:hover { border-color: var(--accent2); }
+
+  .option.selected-correct {
+    background: rgba(52,211,153,0.1);
+    border-color: var(--accent5);
+    color: var(--accent5);
+  }
+
+  .option.selected-wrong {
+    background: rgba(248,81,73,0.1);
+    border-color: var(--danger);
+    color: var(--danger);
+  }
+
+  .option.reveal-correct {
+    background: rgba(52,211,153,0.08);
+    border-color: var(--accent5);
+    color: var(--accent5);
+  }
+
+  .option .radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .explanation {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-radius: 6px;
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--accent);
+    display: none;
+  }
+
+  /* ── VIGNETTE ─────────────────────────────── */
+  .vignette-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .vignette-story {
+    padding: 22px 24px;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    border-bottom: 1px solid var(--border);
+    background: #0f141a;
+    font-style: italic;
+  }
+
+  .vignette-story strong {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .vignette-questions { padding: 20px 24px; }
+
+  .vq { margin-bottom: 18px; }
+
+  .vq .vq-q {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .reveal-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 16px;
+    color: var(--accent2);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .reveal-btn:hover { border-color: var(--accent2); }
+
+  .answer-reveal {
+    display: none;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: rgba(88,166,255,0.08);
+    border: 1px solid rgba(88,166,255,0.3);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--accent2);
+  }
+
+  /* ── FLASHCARDS ──────────────────────────── */
+  .flashcard-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .filter-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .flashcard-scene {
+    perspective: 1200px;
+    height: 220px;
+    max-width: 640px;
+    margin: 0 auto 20px;
+    cursor: pointer;
+  }
+
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+  }
+
+  .flashcard-scene.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .flashcard-front {
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .flashcard-back {
+    background: var(--surface2);
+    border: 1px solid var(--accent2);
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-front .term {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .flashcard-front .category {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  .flashcard-back .def {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .card-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 18px;
+    color: var(--text);
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+
+  .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .card-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .shuffle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-left: auto;
+    transition: all 0.2s;
+  }
+
+  .shuffle-btn:hover { border-color: var(--accent4); color: var(--accent4); }
+
+  /* ── RISK COMPARISON TABLE ────────────── */
+  .comparison-intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .key-contrast {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+  }
+
+  .key-contrast h4 {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  /* ── SECTION NAV ─────────────────────── */
+  .section-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .snav-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .snav-btn:hover, .snav-btn.active {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+
+  /* ── MOCK EXAM ──────────────────────── */
+  .mock-section {
+    margin-bottom: 36px;
+  }
+
+  .mock-case {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .mock-case-header {
+    background: var(--surface2);
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mock-case-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .mock-case-badge {
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .mock-vignette {
+    padding: 22px;
+    background: #0f1419;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.87rem;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .mock-questions { padding: 22px; }
+
+  .mock-q {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mock-q:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .mock-q .mq-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+
+  .mock-q .mq-text {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .mock-q .mq-type {
+    font-size: 0.75rem;
+    color: var(--accent4);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .mock-answer-area {
+    background: var(--surface2);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    min-height: 52px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mock-answer-area:hover, .mock-answer-area.revealed {
+    border-style: solid;
+    border-color: var(--accent2);
+    color: var(--text);
+  }
+
+  .mock-mc-options {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .mock-mc-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+
+  .mock-mc-opt:hover { border-color: var(--accent2); }
+  .mock-mc-opt.correct-ans { border-color: var(--accent5); color: var(--accent5); background: rgba(52,211,153,0.08); }
+  .mock-mc-opt.wrong-ans { border-color: var(--danger); color: var(--danger); background: rgba(248,81,73,0.08); }
+
+  /* progress tracker */
+  .progress-bar-wrap {
+    background: var(--surface2);
+    border-radius: 4px;
+    height: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent5));
+    border-radius: 4px;
+    transition: width 0.4s;
+  }
+
+  /* responsive */
+  @media (max-width: 640px) {
+    header { padding: 16px 16px 0; }
+    main { padding: 20px 14px; }
+    .accordion-header { padding: 14px 16px; }
+    .accordion-body { padding: 0 16px 18px; }
+    header h1 { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <h1>PSYCH 130</h1>
+    <span class="subtitle">Final Exam Study Guide · Chapters 4–10</span>
+  </div>
+  <nav class="tabs">
+    <button class="tab active" onclick="switchTab('disorders')">📖 Disorders</button>
+    <button class="tab" onclick="switchTab('compare')">⚖️ Risk Factor Compare</button>
+    <button class="tab" onclick="switchTab('quiz')">❓ Multiple Choice</button>
+    <button class="tab" onclick="switchTab('vignettes')">📋 Case Vignettes</button>
+    <button class="tab" onclick="switchTab('flashcards')">🃏 Flashcards</button>
+    <button class="tab" onclick="switchTab('mockexam')">📝 Mock Exam</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ════════════════════════════════════════════
+     TAB 1: DISORDERS
+═════════════════════════════════════════════ -->
+<div id="tab-disorders" class="tab-content active">
+
+  <div class="section-nav" style="margin-bottom:20px">
+    <button class="snav-btn active" onclick="filterDisorders('all', this)">All</button>
+    <button class="snav-btn" onclick="filterDisorders('sud', this)">Ch.9 — SUD</button>
+    <button class="snav-btn" onclick="filterDisorders('ed', this)">Ch.10 — Eating Disorders</button>
+    <button class="snav-btn" onclick="filterDisorders('mood', this)">Ch.4 — Mood</button>
+    <button class="snav-btn" onclick="filterDisorders('anxiety', this)">Ch.5 — Anxiety</button>
+    <button class="snav-btn" onclick="filterDisorders('ocd', this)">Ch.6 — OCD/Trauma</button>
+    <button class="snav-btn" onclick="filterDisorders('schiz', this)">Ch.8 — Schizophrenia</button>
+  </div>
+
+  <!-- ── SUD ────────────────────────── -->
+  <div class="accordion-item" data-category="sud">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <h2>Substance Use Disorder (SUD) — Chapter 9</h2>
+        <div class="tags">
+          <span class="tag blue">Ch. 9</span>
+          <span class="tag yellow">Dopamine/Reward</span>
+          <span class="tag green">Genetic h=0.40–0.60</span>
+          <span class="tag orange">Highly Comorbid</span>
+        </div>
+      </div>
+      <span class="chevron">›</span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="section-head">DSM-5-TR Diagnostic Criteria</div>
+      <div class="info-box highlight">
+        A pattern of use leading to significant impairment or distress. Diagnosis requires <strong>2+ symptoms within 12 months</strong>. Severity: Mild (2–3), Moderate (4–5), Severe (6+).
+      </div>
+      <ul class="clean">
+        <li>Taking more substance or for longer than intended</li>
+        <li>Persistent desire or unsuccessful efforts to cut down</li>
+        <li>Great deal of time spent obtaining, using, recovering</li>
+        <li>Craving or strong urge to use</li>
+        <li>Failure to fulfill major role obligations (work, school, home)</li>
+        <li>Continued use despite persistent social/interpersonal problems</li>
+        <li>Important activities given up or reduced</li>
+        <li>Recurrent use in physically hazardous situations</li>
+        <li>Continued use despite knowledge of physical/psychological problems</li>
+        <li><strong>Tolerance</strong> — need for markedly more substance to achieve effect</li>
+        <li><strong>Withdrawal</strong> — characteristic syndrome or using to relieve/avoid withdrawal</li>
+      </ul>
+
+      <div class="section-head">Specific SUDs — Epidemiology & Key Facts</div>
+
+      <div class="info-box blue">
+        <strong>Alcohol Use Disorder</strong><br>
+        Most common SUD. 29.5 million Americans (age 12+) met criteria in 2021. Historically more men; sex gap narrowing — among those born after 1991, men only 1.2× more likely (vs. 3× in mid-20th century). Withdrawal can be life-threatening (delirium, seizures). 80–85% of heavy drinkers also smoke (cross-tolerance via dopamine pathways). Varies by race, education.
+      </div>
+
+      <div class="info-box blue">
+        <strong>Tobacco / Nicotine Use Disorder</strong><br>
+        Most addictive substance. Nicotine directly stimulates dopamine reward pathways. Cross-tolerant with alcohol. Nicotine Replacement Therapy (NRT), bupropion (Wellbutrin), and varenicline (Chantix) are pharmacological treatments. Gradual reduction toward "target quit day" more effective than cold turkey.
+      </div>
+
+      <div class="info-box blue">
+        <strong>Cannabis Use Disorder</strong><br>
+        Rising prevalence as legalization increases. Active ingredient: THC (binds cannabinoid receptors). THC mimics endocannabinoids and stimulates mesolimbic dopamine. Adolescent use especially risky (increases schizophrenia risk). Withdrawal is milder than other substances.
+      </div>
+
+      <div class="info-box blue">
+        <strong>Opioid Use Disorder</strong><br>
+        Heroin, oxycodone, hydrocodone, fentanyl. Bind to opioid receptors → massive dopamine release. High overdose mortality. MAT (medication-assisted treatment): methadone, buprenorphine (Suboxone/Subutex), naltrexone (Vivitrol). Fentanyl is primary driver of overdose crisis.
+      </div>
+
+      <div class="info-box blue">
+        <strong>Stimulant Use Disorder (Cocaine, Amphetamines, Meth)</strong><br>
+        Cocaine: blocks dopamine reuptake → surge. Crack = faster delivery → stronger addiction. Methamphetamine: triggers dopamine release AND blocks reuptake. Meth use is re-emerging. For meth: antidepressants (Wellbutrin) used. No FDA-approved medication for cocaine SUD. High comorbidity with depression.
+      </div>
+
+      <div class="info-box blue">
+        <strong>Hallucinogens (LSD, Psilocybin, MDMA/Ecstasy, PCP)</strong><br>
+        LSD/psilocybin: serotonin agonists, alter perception of reality. Flashbacks (HPPD) can occur. MDMA: increases serotonin, dopamine, NE — associated with empathy, warmth. PCP (angel dust): often leads to agitation and violence. Growing research on psilocybin for therapeutic use.
+      </div>
+
+      <div class="section-head">Gambling Disorder (Non-Substance Addiction)</div>
+      <div class="info-box">
+        Added to DSM-5 in the SUD chapter. Same reward pathway involvement (dopamine/mesolimbic). Tolerance analog (needs higher stakes). No physical withdrawal, but behavioral similarities to SUD. Key debate: are behavioral addictions the same as substance addictions?
+      </div>
+
+      <div class="section-head">Etiology — Genetic Influences</div>
+      <div class="info-box highlight">
+        <strong>Heritability: 0.40–0.60</strong> across substance use disorders. Multiple genes involved (polygenic). Large GWAS show common genetic vulnerability across different SUDs. Twin studies confirm genetic role for alcohol, tobacco, cannabis, and general drug use disorders.
+      </div>
+      <ul class="clean">
+        <li>ADH2/ADH3 genes (alcohol dehydrogenases) — protective in some Asian populations; flushing response due to enzyme deficiency → intolerance to alcohol → lower risk</li>
+        <li>ALDH (aldehyde dehydrogenase) genes — also linked to alcohol use disorder risk</li>
+        <li>Genes that affect dopamine receptor function and sensitivity</li>
+        <li>Genetic overlap with mood disorders, anxiety, and ADHD</li>
+        <li>Both vulnerability model (genetic dopamine dysfunction → higher addiction risk) AND toxic effect model (drug use damages dopamine system) supported for cocaine and opioids</li>
+      </ul>
+
+      <div class="section-head">Etiology — Neurobiological Influences</div>
+      <div class="info-box blue">
+        Nearly all drugs stimulate the <strong>mesolimbic dopamine pathway</strong> (VTA → nucleus accumbens). This is the brain's reward/pleasure center. Key brain regions: prefrontal cortex (inhibitory control), amygdala (salience/craving), nucleus accumbens (dopamine/reward).
+      </div>
+      <div class="info-box">
+        <strong>Incentive-Sensitization Theory (Robinson & Berridge):</strong> The dopamine system becomes supersensitive to drug-related cues. Over time, "wanting" (craving) remains intense while "liking" (pleasure) decreases. Cues (needles, pipes, bars) activate reward areas, inducing powerful craving. Cue exposure doubles likelihood of relapse (meta-analysis of 200+ studies).
+      </div>
+      <ul class="clean">
+        <li>Vulnerability model: dopamine pathway dysfunction predates and predisposes to SUD</li>
+        <li>Toxic effect model: drugs damage dopamine system, worsening addiction</li>
+        <li>PFC downregulation: long-term use weakens prefrontal inhibitory control of nucleus accumbens — impulse control impaired</li>
+        <li>GABA, glutamate, serotonin, NE also implicated depending on substance</li>
+      </ul>
+
+      <div class="section-head">Etiology — Psychological Influences</div>
+      <ul class="clean">
+        <li><strong>Negative reinforcement:</strong> Substance use removes negative emotions (anxiety, depression, stress) → powerful reinforcing effect</li>
+        <li><strong>Positive reinforcement:</strong> Euphoria, pleasure, social facilitation</li>
+        <li><strong>Expectancy theory:</strong> Belief that drug will yield positive effects predicts use; outcome expectancies are powerful predictors</li>
+        <li><strong>Delay discounting / impulsivity:</strong> Valuing short-term reward over long-term consequences (marshmallow test analog) — key risk factor</li>
+        <li><strong>Emotion regulation:</strong> Using substances to manage difficult emotions; negative affect is a major trigger for use and relapse</li>
+        <li><strong>Cognitive factors:</strong> Attentional bias toward drug cues; automatic craving responses</li>
+        <li>Comorbidity with depression, anxiety, PTSD massively increases SUD risk (shared etiology)</li>
+      </ul>
+
+      <div class="section-head">Etiology — Sociocultural Influences</div>
+      <ul class="clean">
+        <li><strong>Peer influence:</strong> One of the strongest predictors of adolescent substance use initiation</li>
+        <li><strong>Cultural norms:</strong> Drinking culture (college: highest alcohol use demographic), media portrayal</li>
+        <li><strong>Availability:</strong> Lower cost and greater availability → more use</li>
+        <li><strong>SES and stress:</strong> Poverty, chronic stress increase SUD risk</li>
+        <li><strong>Trauma and ACEs:</strong> Adverse childhood experiences strongly predict adult SUD</li>
+        <li>College students have peak alcohol consumption rates</li>
+        <li>Race/ethnicity differences in prevalence reflect cultural norms and availability differences</li>
+      </ul>
+
+      <div class="section-head">Treatments</div>
+      <div class="info-box green">
+        <strong>Psychological Treatments</strong><br>
+        <ul class="clean" style="margin-top:8px">
+          <li><strong>CBT:</strong> Most evidence-based. Identifies triggers (high-risk situations), builds coping skills, relapse prevention strategies, altering expectancies</li>
+          <li><strong>Contingency Management:</strong> Reinforces substance-free behaviors with vouchers (verified by urine screens). Highly effective especially for stimulant/opioid use</li>
+          <li><strong>Motivational Interviewing (MI):</strong> Builds motivation to change; resolves ambivalence</li>
+          <li><strong>Alcoholics Anonymous (AA)/12-step:</strong> Standard component of many programs; effective, especially for alcohol</li>
+          <li><strong>Cue Exposure Therapy:</strong> Extinguishes conditioned craving responses</li>
+        </ul>
+      </div>
+      <div class="info-box orange">
+        <strong>Medications</strong><br>
+        <ul class="clean" style="margin-top:8px">
+          <li><strong>Alcohol:</strong> Naltrexone (Vivitrol — blocks opioid/reward; reduces craving), Disulfiram/Antabuse (creates aversive reaction to alcohol — nausea, flushing), Acamprosate (reduces withdrawal symptoms)</li>
+          <li><strong>Opioids (MAT):</strong> Methadone (full opioid agonist, blocks cravings; clinic-based), Buprenorphine/Suboxone (partial agonist, safer, office-based), Naltrexone/Vivitrol (injectable, monthly — blocks high)</li>
+          <li><strong>Nicotine:</strong> NRT (patch, gum, lozenge), Bupropion/Wellbutrin, Varenicline/Chantix</li>
+          <li><strong>Stimulants/Meth:</strong> Antidepressants (Wellbutrin); no FDA-approved medications yet</li>
+          <li><strong>Detoxification:</strong> First step for most drug use disorders; managing withdrawal safely</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── EATING DISORDERS ────────────────────── -->
+  <div class="accordion-item" data-category="ed">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <h2>Eating Disorders — Chapter 10</h2>
+        <div class="tags">
+          <span class="tag blue">Ch. 10</span>
+          <span class="tag orange">Anorexia · Bulimia · BED</span>
+          <span class="tag yellow">Dopamine/Striatum</span>
+          <span class="tag purple">High Mortality</span>
+        </div>
+      </div>
+      <span class="chevron">›</span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="section-head">Anorexia Nervosa — DSM-5-TR Criteria</div>
+      <div class="info-box orange">
+        <strong>Highest mortality rate of any psychiatric disorder.</strong> Restriction of food intake → significantly low body weight (BMI &lt;18.5). Intense fear of gaining weight. Distorted body image (believe they are fat even when emaciated). Severity based on BMI (mild ≥17, moderate 16–16.99, severe 15–15.99, extreme &lt;15).
+      </div>
+      <ul class="clean">
+        <li>Restriction of behaviors that promote healthy body weight</li>
+        <li>Intense fear of gaining weight — NOT reduced by weight loss</li>
+        <li>Distorted body image — overestimates own body size; self-worth tied to thinness</li>
+        <li>Behaviors: weighing frequently, measuring body parts, mirror checking</li>
+        <li>Two subtypes: Restricting type and Binge/Purge type</li>
+      </ul>
+      <div class="info-box">
+        <strong>Epidemiology:</strong> Lifetime prevalence ~0.6–1.0%. 90–95% female (though male cases underdiagnosed). Onset typically adolescence (14–18). Chronic course; highest psychiatric mortality. Anorexia prevalence relatively consistent across cultures (unlike bulimia).
+      </div>
+
+      <div class="section-head">Bulimia Nervosa — DSM-5-TR Criteria</div>
+      <div class="info-box orange">
+        Recurrent episodes of <strong>binge eating</strong> + <strong>inappropriate compensatory behaviors</strong> to prevent weight gain. At least once/week for 3 months. Self-esteem unduly influenced by body shape and weight. Normal or above-normal weight (distinguishes from anorexia).
+      </div>
+      <ul class="clean">
+        <li><strong>Binge:</strong> Eating much more than most people would in similar circumstances within a discrete period; sense of lack of control</li>
+        <li><strong>Purging:</strong> Self-induced vomiting (most common), laxatives, diuretics, enemas</li>
+        <li><strong>Non-purging compensatory:</strong> Excessive exercise, fasting</li>
+        <li>Binges typically triggered by stress and negative emotion; secretive; usually high-calorie foods</li>
+        <li>Shame → purging → temporary relief → shame returns (negative reinforcement cycle)</li>
+      </ul>
+      <div class="info-box">
+        <strong>Epidemiology:</strong> Lifetime prevalence ~1–3%. 85–90% female. Onset late adolescence/early adulthood. Higher prevalence in developed/industrialized cultures (more so than anorexia). Younger age = higher risk; risk decreases with age.
+      </div>
+
+      <div class="section-head">Binge Eating Disorder (BED) — DSM-5-TR Criteria</div>
+      <div class="info-box orange">
+        Recurrent binges (1×/week for 3 months) with <strong>no compensatory behaviors</strong>. Most people with BED are overweight/obese. DSM-5 newly classified (was in appendix before). Marked distress about bingeing.
+      </div>
+      <ul class="clean">
+        <li>Binge episodes: loss of control, eating until uncomfortably full, eating alone due to embarrassment, eating rapidly, feeling disgusted/depressed/guilty after</li>
+        <li>No purging or excessive exercise (distinguishes from bulimia)</li>
+        <li>2–25% of obese people meet BED criteria</li>
+        <li>Bingeing at baseline predicts higher BMI 2 years later (longitudinal research)</li>
+      </ul>
+      <div class="info-box">
+        <strong>Epidemiology:</strong> Most prevalent eating disorder. Lifetime prevalence ~2–3.5%. More equal sex distribution than anorexia/bulimia. Onset varies; any age. Strongly associated with obesity.
+      </div>
+
+      <div class="section-head">Etiology — Genetic Influences</div>
+      <div class="info-box highlight">
+        Anorexia heritability: <strong>0.48–0.74</strong>. Bulimia heritability: <strong>0.55–0.62</strong>. For bulimia: 42% genetic, 58% unique environmental variance (Baker et al., 2010). Higher MZ than DZ concordance for both disorders. Relatives of BED+obesity individuals: 20% also have BED (vs. 9% for obesity-only relatives).
+      </div>
+      <ul class="clean">
+        <li>Heritable features: body dissatisfaction, desire to be thin, binge eating, preoccupation with weight</li>
+        <li>Nonshared environmental factors also important (unique peer groups, parent interactions)</li>
+        <li>GWAS studies identify specific genetic variants; overlap with OCD, anxiety, depression gene loci</li>
+        <li>Shared genetic vulnerability with perfectionism, harm avoidance, anxiety</li>
+      </ul>
+
+      <div class="section-head">Etiology — Neurobiological Influences</div>
+      <div class="info-box blue">
+        <strong>Dopamine:</strong> Both SUD and eating disorders involve dopamine dysregulation. Anorexia linked to <strong>dorsal striatum</strong> (not just ventral/nucleus accumbens as in SUD) — behaviors reinforced positively (sense of control, power over hunger). Dorsal striatum more involved in habit formation.
+      </div>
+      <ul class="clean">
+        <li><strong>Hypothalamus:</strong> Regulates hunger/satiety; dysregulated in anorexia. Hormones controlled by hypothalamus (cortisol, estrogen, thyroid hormones) are disrupted</li>
+        <li><strong>Serotonin:</strong> Dysregulated serotonin activity (especially 5-HT2A receptors) implicated in anorexia; SSRIs more effective for bulimia</li>
+        <li><strong>Leptin:</strong> "Satiety hormone" — levels fall with weight loss, increasing hunger, but people with anorexia resist this signal</li>
+        <li><strong>Ghrelin:</strong> "Hunger hormone" — elevated in anorexia; brain responds abnormally</li>
+        <li>Prefrontal cortex, amygdala, and nucleus accumbens also involved (shared with SUD)</li>
+        <li>Attention bias toward food/body cues in all eating disorders (altered attentional processing)</li>
+      </ul>
+
+      <div class="section-head">Etiology — Psychological Influences</div>
+      <div class="info-box purple">
+        <strong>Cognitive-Behavioral Model (Fairburn) of Bulimia:</strong><br>
+        Low self-esteem + sociocultural pressure → overvaluation of shape/weight → strict dieting → dietary restraint → binge (triggered by negative emotion/stress) → purging → temporary relief → guilt/shame → negative emotion returns → repeat cycle. <em>Negative reinforcement is the core mechanism.</em>
+      </div>
+      <ul class="clean">
+        <li><strong>Negative affect / low self-esteem:</strong> Primary psychological risk factor for ALL eating disorders; shared risk factor with depression, SUD</li>
+        <li><strong>Perfectionism:</strong> Especially in anorexia; high standards for self, extreme self-criticism</li>
+        <li><strong>Body dissatisfaction:</strong> Single strongest predictor of eating disorder onset in prospective studies</li>
+        <li><strong>Dieting:</strong> Onset almost always preceded by dieting; restriction → binge cycle</li>
+        <li><strong>Memory/attention biases:</strong> Selective attention to food-related and body-related cues; memory favors thin-ideal information</li>
+        <li><strong>Positive reinforcement (anorexia):</strong> Weight loss, sense of control, praise from others positively reinforces starvation behaviors</li>
+        <li><strong>Negative reinforcement (all EDs):</strong> Behaviors remove negative emotions (anxiety, shame) temporarily</li>
+        <li>Feeling of shame about purging/bingeing comes back → negatively reinforces the cycle</li>
+      </ul>
+
+      <div class="section-head">Etiology — Sociocultural Influences</div>
+      <ul class="clean">
+        <li><strong>Thin ideal:</strong> Western media portrayal of thinness as ideal; over 60 years of increasing emphasis on thinness for women</li>
+        <li><strong>Media exposure:</strong> Experimental studies show that exposure to unrealistically thin models increases body dissatisfaction; disclaimers ("ads are digitally altered") do NOT help</li>
+        <li><strong>Cultural variation:</strong> Bulimia higher in developed, industrialized cultures. Anorexia more consistent across cultures</li>
+        <li><strong>Bullying/teasing:</strong> Weight-related teasing is a significant risk factor, especially in adolescence</li>
+        <li><strong>Social media:</strong> Body comparison on Instagram, TikTok significantly increases body dissatisfaction, particularly in adolescent girls</li>
+        <li><strong>Age:</strong> Increasing age reduces risk; peak risk in adolescence</li>
+        <li>Being overweight + body dissatisfaction = strongest combined risk factor</li>
+        <li>Dieting, desire to be thin, body dissatisfaction all predict onset of bulimia (prospective research)</li>
+      </ul>
+
+      <div class="section-head">Treatments</div>
+      <div class="info-box green">
+        <strong>Psychological Treatments</strong><br>
+        <ul class="clean" style="margin-top:8px">
+          <li><strong>CBT (most evidence-based for bulimia and BED):</strong> Targets dietary restraint, body dissatisfaction, maladaptive cognitions, binge-purge cycle. Alters memory/attention processes. CBT-guided self-help also effective</li>
+          <li><strong>Family-Based Therapy (FBT / Maudsley approach):</strong> Most effective for adolescents with anorexia; parents take charge of refeeding</li>
+          <li><strong>IPT (Interpersonal Therapy):</strong> Used for bulimia; addresses interpersonal problems that trigger eating episodes; evidence is less robust than CBT</li>
+          <li><strong>Weight stabilization:</strong> Medical priority — must achieve weight restoration before psychological treatment can be fully effective (anorexia)</li>
+          <li><strong>Nutritional counseling:</strong> Often combined with psychotherapy</li>
+        </ul>
+      </div>
+      <div class="info-box orange">
+        <strong>Medications</strong><br>
+        <ul class="clean" style="margin-top:8px">
+          <li><strong>SSRIs (especially fluoxetine/Prozac):</strong> Most evidence for bulimia (FDA-approved); some benefit for BED; limited benefit for anorexia</li>
+          <li><strong>No medications with strong evidence for anorexia;</strong> weight restoration is the primary intervention</li>
+          <li><strong>Hospitalization:</strong> May be needed for severe anorexia to achieve medical stabilization</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── MOOD DISORDERS ────────────────────── -->
+  <div class="accordion-item" data-category="mood">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <h2>Mood Disorders — Chapter 4</h2>
+        <div class="tags">
+          <span class="tag blue">Ch. 4</span>
+          <span class="tag yellow">MDD · Bipolar I & II · Dysthymia</span>
+          <span class="tag orange">HPA Axis · Serotonin</span>
+        </div>
+      </div>
+      <span class="chevron">›</span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="section-head">Major Depressive Disorder (MDD)</div>
+      <div class="info-box highlight">
+        5+ symptoms for 2+ weeks, including depressed mood and/or anhedonia. Lifetime prevalence ~16–17%; 12-month ~7%. Women 2× more likely. Mean onset early 30s. Highly recurrent.
+      </div>
+      <ul class="clean">
+        <li>Depressed mood, anhedonia (core symptoms — 1 required)</li>
+        <li>Weight/appetite change, sleep disturbance, psychomotor changes</li>
+        <li>Fatigue, worthlessness/guilt, concentration difficulties, suicidal ideation</li>
+        <li>Specifiers: with psychotic features, with anxious distress, melancholic, seasonal (SAD)</li>
+        <li><strong>Persistent Depressive Disorder (Dysthymia):</strong> Depressed mood 2+ years; less severe but more chronic</li>
+      </ul>
+
+      <div class="section-head">Bipolar Disorders</div>
+      <ul class="clean">
+        <li><strong>Bipolar I:</strong> 1+ manic episode (7+ days OR any duration if hospitalization needed); often with depressive episodes. Most severe. Heritability ~0.85</li>
+        <li><strong>Bipolar II:</strong> Hypomanic episode (4+ days, not as severe) + MDD episodes. No full mania. Often misdiagnosed as unipolar depression</li>
+        <li><strong>Cyclothymia:</strong> Mild hypomania + depressive symptoms alternating for 2+ years</li>
+        <li><strong>Mania symptoms:</strong> Inflated self-esteem, decreased need for sleep, pressured speech, flight of ideas, distractibility, increased goal-directed activity, risky behavior</li>
+      </ul>
+
+      <div class="section-head">Etiology</div>
+      <ul class="clean">
+        <li><strong>Genetic:</strong> MDD heritability ~0.37; Bipolar ~0.85. Shared genetic vulnerability with anxiety, SUD</li>
+        <li><strong>Neurotransmitters:</strong> Serotonin, NE, dopamine — monoamine hypothesis (low monoamines = depression; excessive = mania). Note: low neurotransmitters are partly inferred from medication effects</li>
+        <li><strong>HPA axis:</strong> Elevated cortisol (stress response) is consistently found in depression; cortisol damages hippocampus over time</li>
+        <li><strong>Brain changes:</strong> Reduced hippocampal volume, reduced PFC activity, amygdala overreactive</li>
+        <li><strong>Cognitive model (Beck):</strong> Negative cognitive triad — negative views of self, world, future. Depressive schemas activated by stress. Cognitive distortions (overgeneralization, catastrophizing)</li>
+        <li><strong>Learned helplessness (Seligman):</strong> Experience of uncontrollable events → passive, hopeless responding</li>
+        <li><strong>Hopelessness theory (Abramson):</strong> Attribution style — internal, stable, global attributions for negative events</li>
+        <li><strong>Interpersonal theory:</strong> Relationship disruptions, grief, role transitions trigger depression</li>
+        <li><strong>Behavioral activation theory:</strong> Withdrawal from rewarding activities reduces positive reinforcement</li>
+        <li>Negative life events, childhood adversity, low social support, neuroticism all predict MDD</li>
+      </ul>
+
+      <div class="section-head">Treatments</div>
+      <ul class="clean">
+        <li><strong>Antidepressants:</strong> SSRIs (first-line), SNRIs, TCAs, MAOIs. Effective for ~50–60%</li>
+        <li><strong>CBT:</strong> As effective as antidepressants for mild-moderate MDD; better relapse prevention. Targets cognitive distortions</li>
+        <li><strong>Behavioral Activation (BA):</strong> Re-engaging with rewarding activities; effective for depression</li>
+        <li><strong>IPT:</strong> Interpersonal Therapy — targets relationship problems</li>
+        <li><strong>Lithium:</strong> First-line mood stabilizer for bipolar. Requires monitoring of blood levels. Reduces mania and depressive episodes</li>
+        <li><strong>Anticonvulsants (Valproate, Lamotrigine):</strong> Mood stabilizers for bipolar</li>
+        <li><strong>Atypical antipsychotics:</strong> Used in bipolar, treatment-resistant depression</li>
+        <li><strong>ECT (Electroconvulsive Therapy):</strong> Effective for severe, treatment-resistant depression; memory side effects; misunderstood but evidence-based</li>
+        <li><strong>Suicide risk:</strong> Assess in all cases. Bipolar has 20–30× suicide risk vs. general population. Safety planning essential</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- ── ANXIETY DISORDERS ────────────────────── -->
+  <div class="accordion-item" data-category="anxiety">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <h2>Anxiety Disorders — Chapter 5</h2>
+        <div class="tags">
+          <span class="tag blue">Ch. 5</span>
+          <span class="tag yellow">GAD · Panic · Phobia · SAD · Agoraphobia</span>
+          <span class="tag green">Fear Conditioning</span>
+        </div>
+      </div>
+      <span class="chevron">›</span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="section-head">Key Disorders</div>
+      <ul class="clean">
+        <li><strong>GAD (Generalized Anxiety Disorder):</strong> Excessive worry about many domains, 6+ months. Difficult to control worry. Muscle tension, fatigue, irritability, sleep disturbance. Prevalence ~5–6%. Intolerance of uncertainty is key cognitive feature</li>
+        <li><strong>Panic Disorder:</strong> Recurrent unexpected panic attacks + persistent worry about future attacks OR maladaptive behavioral change. Panic attack: intense fear, physical symptoms (heart racing, chest pain, dizziness), peaking within minutes. Agoraphobia often comorbid</li>
+        <li><strong>Social Anxiety Disorder (SAD):</strong> Fear of social situations where one might be judged/scrutinized; avoidance. Most common anxiety disorder. Fear of negative evaluation is core cognitive feature</li>
+        <li><strong>Specific Phobia:</strong> Marked fear of specific object/situation; avoidance/intense distress. Types: animal, natural environment, blood-injection-injury, situational, other. BII phobia unique: vasovagal response (fainting)</li>
+        <li><strong>Agoraphobia:</strong> Fear/avoidance of situations where escape is difficult (crowds, public transport, open spaces)</li>
+      </ul>
+
+      <div class="section-head">Shared Etiology Across Anxiety Disorders</div>
+      <div class="info-box blue">
+        <strong>Mowrer's Two-Factor Model:</strong> Classical conditioning (fear acquisition) + Operant conditioning (avoidance = negative reinforcement that maintains fear). Hard to extinguish conditioned fear. Shared with OCD and PTSD.
+      </div>
+      <ul class="clean">
+        <li><strong>Genetics:</strong> Heritability ~0.30–0.40; shared genetic vulnerability across anxiety disorders and MDD</li>
+        <li><strong>Amygdala:</strong> Hyperreactive amygdala; fear conditioning and threat detection</li>
+        <li><strong>Neurotransmitters:</strong> GABA (anxiolytic), NE (hyperarousal), serotonin</li>
+        <li><strong>Behavioral inhibition (BI):</strong> Temperamental trait — withdrawal, fearfulness in novel situations → predisposes to anxiety disorders</li>
+        <li><strong>Cognitive factors:</strong> Attention bias toward threat; overestimation of probability of negative events; intolerance of uncertainty (GAD); fear of negative evaluation (SAD)</li>
+        <li>Shared genetic vulnerability with MDD, SUD</li>
+        <li>Comorbidity very high: 75% of OCD have anxiety disorder; anxiety disorders frequently co-occur with each other</li>
+      </ul>
+
+      <div class="section-head">Treatments</div>
+      <ul class="clean">
+        <li><strong>Exposure therapy:</strong> Gold standard for all anxiety disorders. Systematic desensitization (graduated) or flooding (intense). Breaks conditioned fear via extinction</li>
+        <li><strong>CBT:</strong> Cognitive restructuring of threat appraisals + behavioral exposure</li>
+        <li><strong>Interoceptive exposure (Panic Disorder):</strong> Exposure to feared bodily sensations (deliberate hyperventilation, etc.)</li>
+        <li><strong>SSRIs/SNRIs:</strong> Effective pharmacological treatment for most anxiety disorders</li>
+        <li><strong>Benzodiazepines:</strong> Effective short-term; not recommended long-term (dependence, interference with extinction learning)</li>
+        <li><strong>D-Cycloserine (DCS):</strong> NMDA receptor agonist; enhances extinction learning when combined with exposure</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- ── OCD/TRAUMA ────────────────────── -->
+  <div class="accordion-item" data-category="ocd">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <h2>OCD-Related & Trauma-Related Disorders — Chapter 6</h2>
+        <div class="tags">
+          <span class="tag blue">Ch. 6</span>
+          <span class="tag yellow">OCD · BDD · Hoarding · PTSD · ASD</span>
+          <span class="tag purple">CSTC Loop · Amygdala</span>
+        </div>
+      </div>
+      <span class="chevron">›</span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="section-head">OCD — Criteria & Epidemiology</div>
+      <div class="info-box highlight">
+        Obsessions (intrusive thoughts, ego-dystonic, person knows they're irrational) + Compulsions (repetitive behaviors/mental acts to reduce obsession-driven anxiety). Causes significant distress/impairment. Lifetime prevalence 1–2%. Heritability ~0.40–0.50. Onset childhood/adolescence. Chronic course.
+      </div>
+      <ul class="clean">
+        <li>Common obsession themes: contamination, symmetry, harm, forbidden thoughts</li>
+        <li>Common compulsions: checking, washing, ordering, counting, mental rituals</li>
+        <li><strong>Ego-dystonic:</strong> Person recognizes thoughts as their own but unwanted (key distinction from psychosis)</li>
+        <li>Brain: OFC (orbitofrontal cortex), caudate nucleus, anterior cingulate — CSTC loop hyperactive</li>
+        <li>Serotonin system dysfunction (SSRIs are primary pharmacological treatment)</li>
+      </ul>
+
+      <div class="section-head">OCD — Cognitive Model (Salkovskis)</div>
+      <ul class="clean">
+        <li><strong>Thought-action fusion:</strong> Believing that thinking something = doing it (e.g., "If I think about harming someone, I might actually do it")</li>
+        <li><strong>Inflated responsibility:</strong> Believing one is personally responsible for preventing harm</li>
+        <li><strong>Thought suppression backfire:</strong> Trying to suppress intrusive thoughts makes them occur more frequently (Wegner white bear experiment)</li>
+        <li>Compulsions temporarily reduce anxiety but maintain OCD via negative reinforcement</li>
+      </ul>
+
+      <div class="section-head">OCD-Related Disorders</div>
+      <ul class="clean">
+        <li><strong>Body Dysmorphic Disorder (BDD):</strong> Preoccupation with imagined/slight defect in appearance; repetitive behaviors (mirror checking, camouflaging). Heritability ~0.40–0.50. Higher comorbidity with OCD (~33%). Same CSTC brain circuit + visual processing areas. Appearance teasing as risk factor</li>
+        <li><strong>Hoarding Disorder:</strong> Persistent difficulty discarding possessions regardless of value; excessive acquisition; cluttered living spaces impair function. Equal M/W prevalence. Worsens with age. Cognitive model: unusual beliefs about possessions, poor categorization, emotional attachment</li>
+        <li><strong>Hair-Pulling (Trichotillomania) & Excoriation (Skin Picking):</strong> Body-focused repetitive behaviors; similar CSTC circuit; often stress/anxiety triggered</li>
+      </ul>
+
+      <div class="section-head">OCD Treatment</div>
+      <ul class="clean">
+        <li><strong>ERP (Exposure and Response Prevention):</strong> Gold standard. Exposure to obsessional triggers PLUS prevention of compulsive response. Unlike standard anxiety exposure — targets the obsessive thought directly AND prevents ritual</li>
+        <li><strong>SSRIs:</strong> Primary pharmacological treatment (high doses often needed)</li>
+        <li>Combined ERP + SSRIs more effective than either alone</li>
+      </ul>
+
+      <div class="section-head">PTSD — Criteria</div>
+      <div class="info-box purple">
+        Exposure to actual/threatened death, serious injury, or sexual violence (directly, witnessed, learned about close person, or repeated indirect exposure). Symptoms 1+ month. 4 clusters: intrusion, avoidance, negative alterations in cognition/mood (NACM), arousal/reactivity alterations.
+      </div>
+      <ul class="clean">
+        <li><strong>Intrusion:</strong> Flashbacks, nightmares, intrusive memories, psychological/physiological distress to cues</li>
+        <li><strong>Avoidance:</strong> Avoiding trauma-related thoughts, feelings, external reminders</li>
+        <li><strong>NACM:</strong> Amnesia, negative beliefs about self/world, self-blame, negative emotions, anhedonia, feeling detached, inability to experience positive emotions</li>
+        <li><strong>Arousal/Reactivity:</strong> Hypervigilance, exaggerated startle, sleep disturbance, irritability/aggression, reckless behavior, concentration problems</li>
+        <li><strong>ASD (Acute Stress Disorder):</strong> Same symptoms but 3 days–1 month after trauma. CBT for ASD can prevent PTSD progression</li>
+      </ul>
+
+      <div class="section-head">PTSD — Etiology</div>
+      <ul class="clean">
+        <li>Type and severity of trauma matters: human-caused > natural disasters; sexual/intimate partner violence = highest risk</li>
+        <li>Hippocampal dysfunction: impairs contextualizing trauma memories (can't store memory as "past event"; feels present). Key difference from anxiety disorders</li>
+        <li>Amygdala hyperreactivity; medial PFC hypoactivity (can't regulate amygdala)</li>
+        <li>Dissociation during/after trauma increases risk</li>
+        <li>Women 1.5–2× more likely to develop PTSD given exposure (partially explained by higher rates of sexual assault)</li>
+        <li>Social support after trauma is protective</li>
+        <li>Heritability ~0.50 (shares genes with anxiety disorders)</li>
+        <li>Cognitive model: negative appraisals after trauma ("I caused it", "world is dangerous"), self-blame</li>
+        <li>93% with PTSD have comorbid disorder by age 26</li>
+      </ul>
+
+      <div class="section-head">PTSD Treatment</div>
+      <ul class="clean">
+        <li><strong>Prolonged Exposure (PE):</strong> Gold standard; imaginal + in vivo exposure to trauma memories and reminders</li>
+        <li><strong>Cognitive Processing Therapy (CPT):</strong> Especially for high self-blame; challenges maladaptive cognitions about trauma</li>
+        <li><strong>EMDR (Eye Movement Desensitization & Reprocessing):</strong> Evidence-based; processes traumatic memories while tracking lateral eye movements</li>
+        <li><strong>CISB (Critical Incident Stress Briefing):</strong> NOT helpful; may increase PTSD risk — avoid after trauma</li>
+        <li><strong>SSRIs:</strong> Sertraline (Zoloft) and paroxetine FDA-approved</li>
+        <li>Social support is both protective (preventive) and therapeutic</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- ── SCHIZOPHRENIA ────────────────────── -->
+  <div class="accordion-item" data-category="schiz">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <h2>Schizophrenia — Chapter 8</h2>
+        <div class="tags">
+          <span class="tag blue">Ch. 8</span>
+          <span class="tag yellow">Heritability 0.77–0.81</span>
+          <span class="tag purple">Dopamine Hypothesis</span>
+          <span class="tag orange">Very High Suicide Risk</span>
+        </div>
+      </div>
+      <span class="chevron">›</span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="section-head">Clinical Symptoms — Three Clusters</div>
+      <div class="info-box highlight">
+        Lifetime prevalence 1–2%. Heritability 0.77–0.81 (highest of disorders covered). Mean onset: men late teens/early 20s; women mid-20s/early 30s. Episodic course with persistent deficits between episodes.
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Positive Symptoms</th><th>Negative Symptoms</th><th>Disorganized Symptoms</th></tr>
+          <tr>
+            <td>Hallucinations (often auditory — "hearing voices")<br>Delusions (paranoid, grandiose, referential, somatic)<br>Agitation</td>
+            <td>Flat affect<br>Alogia (poverty of speech)<br>Avolition (loss of motivation)<br>Anhedonia<br>Social withdrawal</td>
+            <td>Disorganized speech (loose associations, word salad)<br>Grossly disorganized behavior<br>Catatonia (stupor or excitement)</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section-head">Etiology — Genetic</div>
+      <ul class="clean">
+        <li>Heritability 0.77–0.81. MZ concordance ~50% (environment matters too)</li>
+        <li>First-degree relatives: ~10% risk; offspring of two parents: ~46%</li>
+        <li>Polygenic; large GWAS identify hundreds of loci</li>
+        <li>Shared genetic vulnerability with bipolar disorder, SUD</li>
+        <li>Excessive synaptic pruning during adolescence — may explain late adolescence onset</li>
+      </ul>
+
+      <div class="section-head">Etiology — Neurobiological</div>
+      <ul class="clean">
+        <li><strong>Dopamine hypothesis:</strong> Excess dopamine in mesolimbic pathway → positive symptoms; too little dopamine in PFC → negative symptoms. Supported by: drugs that block D2 receptors reduce positive symptoms; drugs that increase dopamine (amphetamines) can cause psychosis</li>
+        <li><strong>Glutamate hypothesis:</strong> Hypofunction of NMDA (glutamate) receptors. PCP (which blocks NMDA) causes schizophrenia-like symptoms including negative symptoms</li>
+        <li><strong>Brain structural changes:</strong> Enlarged ventricles (most replicated finding), reduced PFC volume, temporal cortex, hippocampus</li>
+        <li><strong>Prenatal influences:</strong> Obstetric complications, maternal infection (Toxoplasma gondii, influenza), malnutrition, stress during pregnancy</li>
+        <li>Cannabis use in adolescence increases schizophrenia risk significantly</li>
+      </ul>
+
+      <div class="section-head">Etiology — Sociocultural & Environmental</div>
+      <ul class="clean">
+        <li>Urbanicity: 3× risk if raised in cities (independent of SES)</li>
+        <li>Migration: 3–4× risk in migrant populations (stress, discrimination)</li>
+        <li>Poverty and childhood maltreatment increase risk</li>
+        <li>Expressed Emotion (EE): Critical, hostile, over-involved family communication → higher relapse rates</li>
+      </ul>
+
+      <div class="section-head">Treatments</div>
+      <ul class="clean">
+        <li><strong>First-generation antipsychotics (FGAs):</strong> Chlorpromazine, haloperidol. Block D2 receptors. Effective for positive symptoms. High risk of tardive dyskinesia (involuntary movements: tongue wiggling, lip smacking, uncontrolled jaw movements)</li>
+        <li><strong>Second-generation antipsychotics (SGAs):</strong> Clozapine, risperidone, olanzapine, quetiapine. Block D2 + serotonin receptors. Less tardive dyskinesia. Clozapine most effective but requires blood monitoring (risk of agranulocytosis)</li>
+        <li><strong>Psychoeducation:</strong> Strong evidence; for patient and family; reduces relapse</li>
+        <li><strong>CBT for Psychosis (CBTp):</strong> Reduces positive symptoms; challenges delusional beliefs</li>
+        <li><strong>Family therapy / Reducing EE:</strong> Reduces relapse significantly</li>
+        <li><strong>Social skills training:</strong> Improves negative symptoms and functioning</li>
+        <li>Ongoing treatment + family support reduces episode relapse risk</li>
+        <li>12× higher suicide rate than general population (negative symptoms + hopelessness)</li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 2: RISK FACTOR COMPARISON
+═════════════════════════════════════════════ -->
+<div id="tab-compare" class="tab-content">
+
+  <div class="comparison-intro">
+    <strong style="color:var(--accent)">How to use this section:</strong> Comparing shared and unique etiological factors across disorders is a critical exam skill. Study both what disorders have in common and what distinguishes them. The table below covers all major risk domains. Key contrasts follow.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Risk Domain</th>
+        <th>SUD</th>
+        <th>Eating Disorders</th>
+        <th>MDD/Bipolar</th>
+        <th>Anxiety Disorders</th>
+        <th>OCD/PTSD</th>
+        <th>Schizophrenia</th>
+      </tr>
+      <tr>
+        <td><strong>Heritability</strong></td>
+        <td>0.40–0.60 (alcohol, tobacco, cannabis)</td>
+        <td>AN: 0.48–0.74<br>BN: 0.55–0.62<br>BED: moderate</td>
+        <td>MDD: ~0.37<br>Bipolar I: ~0.85</td>
+        <td>~0.30–0.40</td>
+        <td>OCD: ~0.40–0.50<br>PTSD: ~0.50</td>
+        <td><strong>0.77–0.81</strong> (highest)</td>
+      </tr>
+      <tr>
+        <td><strong>Key Brain Regions</strong></td>
+        <td>Nucleus accumbens (dopamine), PFC (inhibitory control), amygdala (craving/salience), VTA</td>
+        <td>AN: Dorsal striatum (habit), hypothalamus (hunger). All: PFC, amygdala, nucleus accumbens shared with SUD</td>
+        <td>Hippocampus ↓ (cortisol damage), PFC ↓, amygdala ↑</td>
+        <td>Amygdala ↑ (fear), PFC ↓</td>
+        <td>OCD: OFC, caudate, anterior cingulate (CSTC loop). PTSD: Amygdala ↑, medial PFC ↓, hippocampus ↓</td>
+        <td>Enlarged ventricles, PFC ↓, temporal cortex ↓, hippocampus ↓</td>
+      </tr>
+      <tr>
+        <td><strong>Neurotransmitter</strong></td>
+        <td>Dopamine (mesolimbic pathway) — all substances. Also GABA, glutamate, serotonin depending on substance</td>
+        <td>Dopamine (especially dorsal striatum), serotonin (5-HT2A in AN), leptin/ghrelin</td>
+        <td>Serotonin, NE, dopamine (monoamine hypothesis); HPA axis (cortisol)</td>
+        <td>GABA (low → anxiety), NE (high), serotonin</td>
+        <td>OCD: Serotonin. PTSD: NE ↑ (locus coeruleus), serotonin</td>
+        <td>Dopamine ↑ (mesolimbic → positive sx), glutamate ↓ (NMDA hypofunction)</td>
+      </tr>
+      <tr>
+        <td><strong>Shared Psychological Risk</strong></td>
+        <td colspan="6" style="color:var(--accent5); font-weight:600">Negative affect / low self-esteem shared across SUD, eating disorders, MDD, anxiety, PTSD — this is the #1 transdiagnostic psychological risk factor</td>
+      </tr>
+      <tr>
+        <td><strong>Reinforcement Mechanism</strong></td>
+        <td>Positive reinforcement (euphoria/reward) + Negative reinforcement (removes negative emotion/withdrawal). Incentive-sensitization: wanting persists, liking decreases</td>
+        <td>AN: Positive (sense of control/power, weight loss praise). All EDs: Negative (purging/restriction removes shame, anxiety)</td>
+        <td>Behavioral withdrawal reduces positive reinforcement (depression). Mania = excessive positive reinforcement seeking</td>
+        <td>Negative reinforcement: avoidance removes anxiety temporarily (Mowrer's model)</td>
+        <td>OCD: Compulsions reduce anxiety (negative reinforcement). PTSD: Avoidance maintains disorder</td>
+        <td>Not primary model</td>
+      </tr>
+      <tr>
+        <td><strong>Gender</strong></td>
+        <td>Historically men > women; gap narrowing for alcohol; roughly equal for other SUDs in younger cohorts</td>
+        <td>90–95% female (anorexia/bulimia); BED more equal</td>
+        <td>MDD: women 2×. Bipolar: roughly equal</td>
+        <td>Women slightly more; PTSD 1.5–2× women given exposure</td>
+        <td>OCD: slightly more women. Hoarding: equal. PTSD: 1.5–2× women</td>
+        <td>Men: earlier onset, worse negative symptoms. Roughly equal overall prevalence</td>
+      </tr>
+      <tr>
+        <td><strong>Sociocultural</strong></td>
+        <td>College culture, peer norms, media portrayals, availability, poverty/stress, cultural norms</td>
+        <td>Thin ideal, media, bullying/teasing, industrialized cultures (bulimia), social media</td>
+        <td>Negative life events, low social support, cultural expression of depression</td>
+        <td>Cultural factors shape content of fears; collectivistic vs. individualistic cultures</td>
+        <td>OCD: religious/cultural norms shape obsession content. PTSD: combat, sexual violence, type of trauma, social support</td>
+        <td>Urbanicity (3×), migration (3–4×), poverty, discrimination. Unique to schizophrenia</td>
+      </tr>
+      <tr>
+        <td><strong>Onset / Course</strong></td>
+        <td>Adolescence/early adulthood. Chronic relapsing course. College peak for alcohol</td>
+        <td>Adolescence (AN/BN); onset can occur at any age for BED. Risk decreases with age for AN/BN</td>
+        <td>MDD: early 30s mean; recurrent. Bipolar: late teens/early 20s; episodic, lifelong</td>
+        <td>Childhood (phobias, separation anxiety), adolescence (SAD, GAD), adulthood (panic). Chronic without treatment</td>
+        <td>OCD: childhood/adolescence, chronic. PTSD: any age post-trauma; can be delayed onset</td>
+        <td>Late teens/early adulthood (men earlier). Episodic with persistent deficits</td>
+      </tr>
+      <tr>
+        <td><strong>Comorbidity</strong></td>
+        <td>SUD+MDD (very common); SUD+PTSD; SUD+anxiety; shared genetic vulnerability across all</td>
+        <td>ED+MDD (very high); ED+anxiety; ED+OCD; ED+SUD (negative reinforcement overlap)</td>
+        <td>MDD+anxiety (~50%); MDD+SUD; bipolar+SUD (very high)</td>
+        <td>75% of OCD; anxiety disorders co-occur with each other; 93% PTSD comorbid by 26</td>
+        <td>OCD+anxiety (75%), OCD+depression, PTSD+MDD+SUD. PTSD comorbid with 93% having another disorder by 26</td>
+        <td>SUD (shared genetic vulnerability), MDD; 12× suicide vs. general population</td>
+      </tr>
+      <tr>
+        <td><strong>First-Line Treatment</strong></td>
+        <td>CBT + contingency management + medications (MAT for opioids, naltrexone for alcohol, NRT for nicotine)</td>
+        <td>CBT (bulimia, BED); FBT (adolescent anorexia); SSRIs (bulimia); weight restoration first for AN</td>
+        <td>SSRIs + CBT/BA for MDD; lithium for bipolar; ECT for severe/resistant</td>
+        <td>Exposure therapy + SSRIs/SNRIs</td>
+        <td>OCD: ERP + SSRIs. PTSD: Prolonged Exposure, CPT, EMDR + SSRIs</td>
+        <td>Antipsychotics + psychoeducation + family therapy/CBTp</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin:32px 0 16px; font-size:1.2rem;">🔑 Key Cross-Disorder Contrasts for the Exam</h3>
+
+  <div class="key-contrast">
+    <h4>SUD vs. Eating Disorders — Shared Etiology</h4>
+    Both involve the <strong>dopamine reward system</strong> (mesolimbic pathway and nucleus accumbens). Both feature negative reinforcement as a core maintaining mechanism — using substances OR restricting/purging removes negative emotions. Both share <strong>negative affect/low self-esteem</strong> as primary psychological risk factors. However, SUD focuses on ventral striatum/nucleus accumbens (immediate reward), while anorexia involves dorsal striatum (habit/control). Eating disorders add the sociocultural thin-ideal component as a unique etiological pathway. Both have high comorbidity with each other (ED+SUD is common). Both involve craving-like phenomena: cue-induced wanting. Delay discounting (valuing immediate reward) is a shared psychological mechanism.
+  </div>
+
+  <div class="key-contrast">
+    <h4>SUD vs. OCD/PTSD — Negative Reinforcement</h4>
+    All three disorders are powerfully maintained by negative reinforcement: substances remove distress (SUD), compulsions reduce obsessional anxiety (OCD), avoidance prevents confronting trauma cues (PTSD). All involve conditioned cue responses — cues activate craving/anxiety/fear. Mowrer's two-factor model applies to anxiety, OCD, and PTSD, and parallels the cue-reactivity model in SUD. Shared neuroscience: amygdala salience, PFC downregulation of emotional responses.
+  </div>
+
+  <div class="key-contrast">
+    <h4>SUD vs. MDD — Shared Genetic Vulnerability</h4>
+    Very high comorbidity (50%+ of people with SUD have lifetime MDD). Shared genes for neuroticism/negative affect predispose to both. Shared neurotransmitter involvement (serotonin, dopamine, NE). Self-medication hypothesis: people use substances to treat undiagnosed depression/anxiety. HPA axis dysregulation (cortisol) occurs in both. Negative affect is the primary shared psychological risk factor. Treatment overlap: SSRIs helpful for both mood and some substance use dimensions; CBT adapted for both.
+  </div>
+
+  <div class="key-contrast">
+    <h4>Eating Disorders vs. OCD — Intrusive Thoughts & Rituals</h4>
+    High comorbidity (ED+OCD ~25–40%). Both involve intrusive, ego-dystonic thoughts (OCD) or ego-syntonic food/weight preoccupation (EDs). Both involve compulsive-like behaviors (checking weight, mirror gazing in ED; checking/washing in OCD). Serotonin dysregulation implicated in both — SSRIs used in both (more evidence for OCD and bulimia). OFC involvement in both. Both have perfectionism as a shared risk factor. Key difference: OCD obsessions are ego-dystonic (unwanted); ED food/weight preoccupations are ego-syntonic (valued).
+  </div>
+
+  <div class="key-contrast">
+    <h4>Schizophrenia — What Makes It Unique</h4>
+    <strong>Far higher heritability</strong> (0.77–0.81) than any other disorder covered. <strong>Dopamine hypothesis</strong> specific to mesolimbic overactivity (positive symptoms) AND mesocortical hypoactivity (negative symptoms). <strong>Urbanicity and migration</strong> as unique sociocultural risk factors (independent of SES). Structural brain changes (enlarged ventricles) unique. Prenatal infections (toxoplasma gondii, influenza) as causal factors. Excessive synaptic pruning. <strong>12× suicide rate</strong> vs. general population. Cannabis use in adolescence is a significant, modifiable risk factor.
+  </div>
+
+  <div class="key-contrast">
+    <h4>PTSD vs. Anxiety Disorders — Key Differences</h4>
+    PTSD shares Mowrer's conditioning model with anxiety disorders BUT is unique in requiring a traumatic event. Hippocampal dysfunction is specific to PTSD (contextualizing memory as past event). NACM cluster (negative cognitions/mood) is distinctive. Treatment difference: ERP for OCD targets compulsions; Prolonged Exposure for PTSD targets trauma memories; standard exposure for anxiety targets feared situations. Type and severity of trauma matters (human-caused &gt; natural disasters; sexual violence = highest risk).
+  </div>
+
+  <div class="key-contrast">
+    <h4>Transdiagnostic Risk Factors (Present Across ALL Disorders)</h4>
+    <ul class="clean" style="margin-top:8px">
+      <li><strong>Negative affect / neuroticism:</strong> Shared psychological risk across SUD, ED, MDD, anxiety, OCD, PTSD, schizophrenia</li>
+      <li><strong>Childhood adversity / ACEs:</strong> Increases risk for virtually every disorder</li>
+      <li><strong>Low social support:</strong> Maintains and worsens all disorders; high support is protective</li>
+      <li><strong>Genetic vulnerability:</strong> All disorders are heritable; significant shared genetic variance across mood, anxiety, and SUD (p-factor / internalizing spectrum)</li>
+      <li><strong>Stress:</strong> Major life stressors trigger onset and relapse across all disorders</li>
+      <li><strong>Cognitive biases:</strong> Attention toward threat/disorder-relevant stimuli across all disorders</li>
+      <li><strong>COVID-19 pandemic:</strong> Worsened eating disorder symptoms (+48% hospitalizations), depression, anxiety, and SUD rates</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 3: MULTIPLE CHOICE
+═════════════════════════════════════════════ -->
+<div id="tab-quiz" class="tab-content">
+
+  <div class="quiz-header">
+    <div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:4px">Multiple Choice Practice</h2>
+      <p style="color:var(--text-muted);font-size:0.85rem">40 questions · Chapters 4–10 · Click an option to answer</p>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <div class="score-badge" id="score-display">Score: 0 / 0</div>
+      <button class="reset-btn" onclick="resetQuiz()">↺ Reset</button>
+    </div>
+  </div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="quiz-progress" style="width:0%"></div>
+  </div>
+
+  <div id="quiz-container"></div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 4: CASE VIGNETTES
+═════════════════════════════════════════════ -->
+<div id="tab-vignettes" class="tab-content">
+
+  <div class="vignette-card">
+    <div class="vignette-story">
+      <strong>Vignette A — Marcus:</strong> Marcus, a 34-year-old man, began drinking heavily after a difficult divorce two years ago. He now drinks at least 8–10 beers per day and has been called in late to work three times this month. Last week, he tried to stop drinking but felt his hands shaking and became so anxious and sweaty that he resumed drinking within hours. His sister confronted him but he says alcohol is "the only thing keeping me together." He often drinks alone and has stopped seeing friends. He has stopped going to his gym, which he used to love.
+    </div>
+    <div class="vignette-questions">
+      <div class="vq">
+        <div class="vq-q">1. What DSM symptom does Marcus's hand-shaking and sweating upon cessation represent?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Withdrawal — a characteristic syndrome occurring when substance use is reduced or discontinued.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">2. Name TWO other DSM criteria for SUD that Marcus meets.</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Any two of: (a) failure to fulfill major role obligations (late to work), (b) persistent desire/unsuccessful efforts to cut down (tried and failed), (c) giving up important activities (gym, friends), (d) continued use despite interpersonal problems (sister's confrontation), (e) using in the morning to relieve withdrawal symptoms.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">3. What neurobiological process explains why cues (seeing a beer bottle) can trigger Marcus's craving?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Incentive-sensitization — the dopamine system becomes supersensitive to drug cues ("wanting" persists while "liking" decreases). Cue-elicited craving activates mesolimbic reward pathways. Conditioned responses to drug-associated stimuli.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">4. What is the psychological mechanism keeping Marcus drinking despite wanting to stop?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Negative reinforcement — alcohol removes the negative emotional state (anxiety, withdrawal symptoms, grief from divorce). This is the primary maintaining mechanism in SUD. He also uses it to regulate emotion (the divorce).</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">5. What medication would be used in a medically supervised detox for alcohol withdrawal?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Benzodiazepines (e.g., diazepam/Valium, chlordiazepoxide/Librium) are standard for alcohol detox to prevent life-threatening withdrawal seizures. Then naltrexone (Vivitrol) or acamprosate for maintaining abstinence.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">6. What is the most evidence-based psychological treatment for alcohol use disorder?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">CBT (Cognitive Behavioral Therapy) — identifying triggers/high-risk situations, relapse prevention, coping strategies. Contingency management also highly effective. AA is widely used and also effective.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vignette-card">
+    <div class="vignette-story">
+      <strong>Vignette B — Sofia:</strong> Sofia is a 17-year-old competitive dancer who began restricting her food intake 8 months ago to "be more competitive." She now eats only 600–800 calories per day, exercises 3 hours daily, and currently weighs 88 lbs at 5'5" (BMI ≈ 14.6). She believes her thighs are "still too fat" and weighs herself 4–5 times per day. Despite her parents' pleas, she says she "doesn't feel that thin." Her menstrual cycle stopped 4 months ago. When her weight is brought up, she becomes intensely anxious.
+    </div>
+    <div class="vignette-questions">
+      <div class="vq">
+        <div class="vq-q">1. What is Sofia's most likely diagnosis? What subtype?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Anorexia Nervosa, Restricting Subtype (BMI 14.6 = Extreme severity; restriction only, no binge/purge behavior described). Three criteria met: restriction → severely low weight, intense fear of weight gain, distorted body image.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">2. Sofia says she doesn't feel thin even at BMI 14.6. What psychological term describes this?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Body image distortion — overestimation of body size; believing oneself to be overweight or fat despite objective evidence of being severely underweight. This is a defining feature of anorexia nervosa.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">3. What reinforcement mechanism maintains Sofia's starvation behaviors?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Both positive reinforcement (feeling of power/control over hunger, praise from coaches for being lean, weight loss itself feels rewarding) and negative reinforcement (restriction removes anxiety about weight gain). Notes from class explicitly mention anorexia behaviors are reinforced positively by feeling of power/weight loss.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">4. What brain region and neurotransmitter system is particularly implicated in anorexia, distinguishing it from typical SUD?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Dorsal striatum (habit formation/control) is more implicated in anorexia (versus ventral striatum/nucleus accumbens in typical SUD). Also: serotonin system (5-HT2A receptors) and hypothalamus (hunger regulation). Dopamine is involved in both but via different striatal subregions.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">5. What is the most evidence-based treatment approach for a 17-year-old with anorexia?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Family-Based Therapy (FBT/Maudsley approach) — parents take charge of refeeding; most evidence-based for adolescent anorexia. Weight stabilization/restoration must occur first before psychotherapy can be fully effective. Medical hospitalization may be needed given severity (BMI 14.6).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vignette-card">
+    <div class="vignette-story">
+      <strong>Vignette C — Jordan:</strong> Jordan, 22, describes intense episodes where they eat 3–4 large pizzas, containers of ice cream, and bags of cookies in about 90 minutes, then immediately induce vomiting. These episodes happen 3–4 times per week. Afterward, Jordan feels intense shame and disgust, swearing "never again" — but by the following evening, a fight with their roommate triggers another binge. Jordan has normal weight, exercises normally, and has kept this secret for 2 years. Jordan's teeth have recently become sensitive and their salivary glands are swollen.
+    </div>
+    <div class="vignette-questions">
+      <div class="vq">
+        <div class="vq-q">1. What is Jordan's diagnosis?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Bulimia Nervosa — recurrent binge eating (eating large amounts with loss of control) followed by compensatory behavior (self-induced vomiting = purging), ≥1×/week for 3+ months, at normal weight.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">2. What medical signs suggest purging behavior even without self-disclosure?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Dental erosion/sensitivity (from stomach acid), swollen salivary/parotid glands (Russell's sign), calluses on knuckles (from inducing vomiting), low potassium (hypokalemia from electrolyte imbalance).</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">3. Describe the cognitive-behavioral cycle that maintains Jordan's bulimia.</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Low self-esteem + thin ideal → overvaluation of shape/weight → dietary restriction → stress/negative emotion (fight with roommate) triggers binge → purging temporarily removes guilt/anxiety (negative reinforcement) → shame/guilt returns → negative self-evaluation → repeat. Feelings of shame about the purging negatively reinforce the cycle (per class notes).</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">4. What is the most evidence-based treatment for bulimia?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">CBT (Cognitive Behavioral Therapy) — targeting the binge-purge cycle, dietary restraint, body image, and maladaptive cognitions. SSRIs (especially fluoxetine/Prozac) are FDA-approved for bulimia. IPT is also used but less evidence than CBT.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vignette-card">
+    <div class="vignette-story">
+      <strong>Vignette D — David:</strong> David, 28, has been using heroin daily for 3 years after starting with prescription oxycodone following a sports injury. He tried to quit twice but experienced severe nausea, muscle cramps, and anxiety within 24 hours. He sold his car and emptied his savings to maintain his supply. He knows heroin is destroying his relationships and health but describes an overwhelming urge to use that he cannot resist, especially when he passes the neighborhood where he first used.
+    </div>
+    <div class="vignette-questions">
+      <div class="vq">
+        <div class="vq-q">1. What treatment approach is most evidence-based for opioid use disorder?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Medication-Assisted Treatment (MAT): Buprenorphine (Suboxone/Subutex — partial opioid agonist, safer ceiling effect), Methadone (full agonist, reduces cravings, clinic-based), Naltrexone/Vivitrol (injectable monthly, blocks opioid receptors). Combined with CBT and contingency management for best outcomes.</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">2. David feels an "overwhelming urge" when passing his old neighborhood. What theory explains this?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">Incentive-sensitization theory (Robinson & Berridge) — the neighborhood is a conditioned cue that activates the dopamine system and produces intense craving ("wanting") even though the pleasure ("liking") from heroin has diminished. Cue-elicited craving doubles the likelihood of relapse (meta-analysis).</div>
+      </div>
+      <div class="vq">
+        <div class="vq-q">3. David started with oxycodone (a legal prescription). What does this illustrate about opioid use disorder?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+        <div class="answer-reveal">The opioid epidemic pathway: prescription opioid use → tolerance → escalating use → when prescription ends or becomes expensive, transition to illicit opioids (heroin, fentanyl). All opioids bind the same receptors and activate mesolimbic dopamine; the progression reflects tolerance, withdrawal, and availability factors.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 5: FLASHCARDS
+═════════════════════════════════════════════ -->
+<div id="tab-flashcards" class="tab-content">
+
+  <div class="flashcard-controls">
+    <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCards('sud', this)">SUD</button>
+    <button class="filter-btn" onclick="filterCards('ed', this)">Eating Disorders</button>
+    <button class="filter-btn" onclick="filterCards('mood', this)">Mood</button>
+    <button class="filter-btn" onclick="filterCards('anxiety', this)">Anxiety</button>
+    <button class="filter-btn" onclick="filterCards('ocd', this)">OCD/Trauma</button>
+    <button class="filter-btn" onclick="filterCards('schiz', this)">Schizophrenia</button>
+    <button class="filter-btn" onclick="filterCards('shared', this)">Shared Etiology</button>
+    <button class="shuffle-btn" onclick="shuffleCards()">⇄ Shuffle</button>
+  </div>
+
+  <div class="flashcard-scene" id="flashcard" onclick="flipCard()">
+    <div class="flashcard-inner" id="flashcard-inner">
+      <div class="flashcard-face flashcard-front">
+        <div>
+          <div class="term" id="card-term">Loading...</div>
+          <div class="category" id="card-category"></div>
+          <div style="margin-top:12px;font-size:0.75rem;color:var(--text-muted)">Click to flip</div>
+        </div>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <div class="def" id="card-def">Definition here</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-nav">
+    <button class="nav-btn" id="prev-btn" onclick="prevCard()">← Prev</button>
+    <span class="card-counter" id="card-counter">1 / 1</span>
+    <button class="nav-btn" id="next-btn" onclick="nextCard()">Next →</button>
+  </div>
+
+  <div style="text-align:center;margin-top:12px;font-size:0.78rem;color:var(--text-muted)">Use arrow keys to navigate · Click or spacebar to flip</div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 6: MOCK EXAM
+═════════════════════════════════════════════ -->
+<div id="tab-mockexam" class="tab-content">
+
+  <div style="margin-bottom:24px">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:8px">Psychology 130 — Mock Final Exam</h2>
+    <p style="color:var(--text-muted);font-size:0.87rem">3 clinical vignettes · Multiple choice + short answer + comparison questions · Reveal answers one at a time</p>
+  </div>
+
+  <!-- CASE 1 -->
+  <div class="mock-case">
+    <div class="mock-case-header">
+      <span class="mock-case-badge">CASE 1</span>
+      <h3>Mei — A College Sophomore</h3>
+    </div>
+    <div class="mock-vignette">
+      Mei, a 20-year-old Chinese American college sophomore, began experimenting with alcohol freshman year. By sophomore year, she drinks every night to "calm down" before bed, and needs 4–5 drinks to feel the same effect that 1–2 drinks once produced. When she ran out of alcohol during a weekend trip, she developed tremors and felt so anxious and nauseated that she asked a friend to drive her to a liquor store.<br><br>
+      Mei has also been struggling with her eating. She frequently restricts food during the week ("eating clean"), then binges on weekends after parties — eating thousands of calories in an hour and a half, then vomiting or taking laxatives before bed. She believes she is "disgusting" and that her body is "wrong." She avoids pools and beaches, and she has stopped calling her friends because she feels too ashamed.
+    </div>
+    <div class="mock-questions">
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 1</div>
+        <div class="mq-text">What specific DSM symptom does Mei's need for 4–5 drinks to feel the same effect represent?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Tolerance — needing markedly increased amounts of alcohol to achieve intoxication or desired effect. One of the 11 DSM-5-TR criteria for SUD.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 2</div>
+        <div class="mq-text">What does Mei's tremors, nausea, and intense anxiety when she ran out of alcohol represent?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Withdrawal — a characteristic syndrome developing when substance use is reduced or discontinued. Alcohol withdrawal is among the most dangerous and can include seizures and delirium tremens.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 3</div>
+        <div class="mq-text">What is Mei's eating disorder diagnosis?</div>
+        <div class="mq-type">Multiple choice</div>
+        <div class="mock-mc-options">
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>A.</span> Anorexia nervosa, restricting type</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, true)"><span>B.</span> Bulimia nervosa</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>C.</span> Binge eating disorder</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>D.</span> Anorexia nervosa, binge/purge type</div>
+        </div>
+        <div class="mock-answer-area" style="margin-top:10px" onclick="toggleMockAnswer(this, 'B — Bulimia nervosa: recurrent binges (large amounts, loss of control) + compensatory behaviors (vomiting, laxatives) + normal or above-normal weight. Not anorexia because Mei is not underweight. Not BED because she uses compensatory behaviors.')">Explanation</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 4</div>
+        <div class="mq-text">Both Mei's alcohol use disorder and her bulimia nervosa share a common maintaining psychological mechanism. Name this mechanism and explain it for EACH disorder.</div>
+        <div class="mq-type">Short answer — compare/contrast</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Negative reinforcement. For AUD: alcohol removes anxiety, withdrawal discomfort, and negative emotions → drinking is reinforced. For bulimia: purging temporarily removes the guilt/shame/anxiety following a binge → purging is reinforced. In both cases, the behavior persists because it successfully eliminates aversive states, even though it is harmful long-term.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 5</div>
+        <div class="mq-text">What neurobiological pathway is involved in BOTH alcohol use disorder and eating disorders?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'The mesolimbic dopamine pathway (VTA → nucleus accumbens). Alcohol and other substances directly activate this reward pathway. Eating (particularly binge eating) also activates dopamine release in the nucleus accumbens. Both disorders involve dysregulation of reward circuitry. Anorexia specifically also implicates the dorsal striatum (habit/control circuits), distinguishing it from typical SUD.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 6</div>
+        <div class="mq-text">Mei avoids pools and beaches and has stopped calling friends. For each disorder (AUD and bulimia), what DSM criterion does this behavior meet?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'For AUD: giving up or reducing social activities, hobbies, and work due to substance use (DSM criterion). For bulimia: avoidance related to body shame (social isolation driven by body dissatisfaction is a feature of the disorder, not a formal diagnostic criterion, but reflects severity and impairment). The shame-driven isolation may also perpetuate the binge-purge cycle by removing protective social connections.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 7</div>
+        <div class="mq-text">What is the heritability of alcohol use disorder, and what protective genetic variant exists in some East Asian populations?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Heritability of AUD: 0.40–0.60. Protective variant: mutations in ADH2 and ADH3 genes (alcohol dehydrogenase enzymes) and ALDH (aldehyde dehydrogenase) cause an enzyme deficiency that produces aversive flushing response from even small amounts of alcohol. About 75% of East Asian individuals experience this, which is protective against developing AUD.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 8</div>
+        <div class="mq-text">What is the most evidence-based treatment package for Mei's bulimia nervosa?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'CBT for bulimia nervosa: targets dietary restraint, binge-purge cycle, body image distortion, and shame-driven avoidance. CBT-guided self-help is also effective. SSRIs (fluoxetine/Prozac, highest dose) are FDA-approved for bulimia and can be combined with CBT. IPT is also used but has less evidence. Key CBT components: normalizing eating patterns, reducing dietary restraint, challenging thin-ideal cognitions, emotion regulation skills.')">Click to reveal answer</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="mock-case">
+    <div class="mock-case-header">
+      <span class="mock-case-badge">CASE 2</span>
+      <h3>Ryan — "Functional" Until He Wasn't</h3>
+    </div>
+    <div class="mock-vignette">
+      Ryan, 32, a software engineer, started smoking marijuana in college. Over the past 5 years, he has gradually increased use to daily — first evenings only, now throughout the day. He tells himself it's "just weed" and "not like real drugs." When he doesn't smoke for a day, he becomes irritable, has difficulty sleeping, and loses his appetite. He has been passed over for two promotions because of his declining performance. His girlfriend of 4 years left him because he "cared more about weed than about us."<br><br>
+      Ryan also describes that since childhood he has felt persistently sad, hopeless, and fatigued. He struggles to enjoy anything even when not using cannabis. He has poor concentration, sleeps 10–11 hours per day and still feels exhausted.
+    </div>
+    <div class="mock-questions">
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 9</div>
+        <div class="mq-text">How many DSM criteria for cannabis use disorder does Ryan meet? List them.</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'At least 6: (1) Withdrawal — irritability, sleep problems, appetite loss when not using. (2) Tolerance — needs more over time (escalated from evenings to all day). (3) Continued use despite interpersonal problems (girlfriend left him). (4) Failure to fulfill role obligations (passed over for promotions). (5) Giving up important activities (relationship, career advancement). (6) Takes more or uses longer than intended (escalation). This is SEVERE SUD (6+ criteria).')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 10</div>
+        <div class="mq-text">Ryan's persistent sadness, hopelessness, fatigue, hypersomnia, and anhedonia since childhood suggest a comorbid condition. What is the most likely diagnosis?</div>
+        <div class="mq-type">Multiple choice</div>
+        <div class="mock-mc-options">
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>A.</span> Major depressive disorder</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, true)"><span>B.</span> Persistent depressive disorder (dysthymia)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>C.</span> Bipolar II disorder</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>D.</span> Substance-induced mood disorder</div>
+        </div>
+        <div class="mock-answer-area" style="margin-top:10px" onclick="toggleMockAnswer(this, 'B — Persistent Depressive Disorder (Dysthymia): depressed mood more days than not for 2+ years (\"since childhood\"), with associated symptoms (hopelessness, fatigue, hypersomnia, concentration difficulties, low self-esteem). Not MDD because no distinct episode is described — it is chronic baseline low mood. Not substance-induced because symptoms predate cannabis use. Note: SUD and PDD very commonly co-occur.')">Explanation</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 11</div>
+        <div class="mq-text">Ryan says marijuana is "not a real drug." What does this represent, and how does the neuroscience contradict him?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'This reflects minimization/denial, a common cognitive pattern in SUD. Neuroscientifically: THC (active ingredient in cannabis) binds cannabinoid (CB1) receptors and stimulates the mesolimbic dopamine pathway — the same reward pathway activated by alcohol, opioids, and stimulants. Chronic use downregulates dopamine receptors, produces tolerance and withdrawal, and causes functional changes in PFC (reduced inhibitory control). Cannabis use in adolescence also significantly increases schizophrenia risk.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 12</div>
+        <div class="mq-text">The self-medication hypothesis suggests Ryan uses cannabis partly to manage his depression. Describe this hypothesis and its implications for treatment.</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Self-medication hypothesis: People use substances to reduce distress from untreated psychiatric conditions (here: depression/dysthymia). Cannabis may temporarily reduce negative affect (negative reinforcement), but chronic use worsens depression and cognition long-term. Treatment implication: both disorders must be treated simultaneously (integrated treatment). Treating only the SUD may lead to rapid relapse as the underlying depression resurfaces. CBT for integrated SUD+depression is the most evidence-based approach.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 13</div>
+        <div class="mq-text">What shared genetic vulnerability exists between substance use disorders and mood disorders?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Multiple shared genetic mechanisms: (1) Genes for neuroticism/negative affect predispose to both MDD and SUD. (2) GWAS studies show common genetic loci across SUD, MDD, and anxiety disorders (internalizing spectrum/p-factor). (3) Shared dopamine and serotonin system variants. (4) Heritability for MDD ~0.37; for SUD ~0.40–0.60 — both moderate. (5) Family studies show SUD and MDD cluster together in families.')">Click to reveal answer</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CASE 3 — COMPARISON -->
+  <div class="mock-case">
+    <div class="mock-case-header">
+      <span class="mock-case-badge">CASE 3</span>
+      <h3>Cross-Disorder Comparison Questions</h3>
+    </div>
+    <div class="mock-questions">
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 14</div>
+        <div class="mq-text">Compare and contrast the role of dopamine in schizophrenia versus substance use disorders. How does this difference affect treatment?</div>
+        <div class="mq-type">Short answer — compare/contrast</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'SCHIZOPHRENIA: Excess dopamine in mesolimbic pathway → positive symptoms (hallucinations, delusions). Insufficient dopamine in mesocortical pathway (PFC) → negative symptoms. Treatment: antipsychotics BLOCK D2 receptors. SUD: Drugs INCREASE dopamine in mesolimbic pathway → euphoria/reward. The dopamine system becomes sensitized to cues (incentive-sensitization). Treatment: medications that reduce craving (naltrexone blocks reward), not block receptors. KEY DIFFERENCE: Schizophrenia = too much dopamine in reward areas. SUD = drugs artificially boost dopamine. Giving antipsychotics to someone with SUD would NOT treat the addiction.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 15</div>
+        <div class="mq-text">A patient with anorexia nervosa refuses to eat, saying "I feel so in control when I don't eat." A patient with OCD refuses to leave the house without completing a 2-hour checking ritual. What do these two presentations share, and how do they differ?</div>
+        <div class="mq-type">Short answer — compare/contrast</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'SIMILARITIES: Both are maintained by negative reinforcement (checking reduces anxiety in OCD; restriction reduces anxiety about weight gain in AN). Both involve behavioral rituals. Both involve perfectionism as a risk factor. Both have high comorbidity with each other (OCD+AN ~25%). Both involve serotonin system dysfunction. Both cause significant functional impairment. DIFFERENCES: AN obsessions are ego-SYNTONIC (the restriction feels meaningful and valued — "I want to be thin"). OCD obsessions are ego-DYSTONIC (the person finds the thoughts disturbing and unwanted). AN has positive reinforcement component (power/control). OCD does not — compulsions are distressing, not pleasurable. Brain: AN involves dorsal striatum and hypothalamus; OCD involves CSTC loop (OFC, caudate). Treatment: FBT/CBT for AN; ERP for OCD.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 16</div>
+        <div class="mq-text">A clinician argues that all SUD, eating disorders, MDD, and anxiety disorders share a single underlying psychological risk factor. What is that risk factor, and cite evidence from at least 3 disorders to support this claim.</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'NEGATIVE AFFECT / LOW SELF-ESTEEM (also described as neuroticism or emotional dysregulation). Evidence: (1) SUD: substances are used primarily as emotion regulation — negative reinforcement. Negative affect is the #1 predictor of relapse. (2) Eating disorders: class notes explicitly state "main psychological risk factor for EDs is negative affect/low self-esteem." Body dissatisfaction and negative emotion trigger binge episodes in bulimia. (3) MDD: By definition; Beck\'s cognitive triad; hopelessness theory. Negative affect IS the core feature. (4) Anxiety: Negative affect predicts anxiety disorder onset; shared with MDD in genetic studies (internalizing spectrum). (5) PTSD: Negative appraisals after trauma (self-blame, world is dangerous) are central to PTSD cognitive model. (6) Schizophrenia: Stress reactivity — negative emotion increases risk of psychotic episodes and relapse.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 17</div>
+        <div class="mq-text">Which of the following disorders has the HIGHEST heritability?</div>
+        <div class="mq-type">Multiple choice</div>
+        <div class="mock-mc-options">
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>A.</span> Alcohol use disorder (h ≈ 0.40–0.60)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>B.</span> Anorexia nervosa (h ≈ 0.48–0.74)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, true)"><span>C.</span> Schizophrenia (h ≈ 0.77–0.81)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>D.</span> Bipolar I disorder (h ≈ 0.85)</div>
+        </div>
+        <div class="mock-answer-area" style="margin-top:10px" onclick="toggleMockAnswer(this, 'C — Schizophrenia has heritability of 0.77–0.81, making it the most heritable of the disorders covered in this course per the textbook. NOTE: Bipolar I (h~0.85) is technically slightly higher in some estimates, but the textbook presents schizophrenia as having the highest heritability of the disorders specifically emphasized. Check your notes for how this was presented in lecture.')">Explanation</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 18</div>
+        <div class="mq-text">For PTSD, what treatment is NOT recommended and may actually increase PTSD risk after a traumatic event?</div>
+        <div class="mq-type">Multiple choice</div>
+        <div class="mock-mc-options">
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>A.</span> Cognitive Processing Therapy (CPT)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>B.</span> Prolonged Exposure (PE)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, true)"><span>C.</span> Critical Incident Stress Briefing (CISB)</div>
+          <div class="mock-mc-opt" onclick="selectMockMC(this, false)"><span>D.</span> EMDR</div>
+        </div>
+        <div class="mock-answer-area" style="margin-top:10px" onclick="toggleMockAnswer(this, 'C — CISB (Critical Incident Stress Briefing) is NOT recommended after trauma. Research shows it may actually increase PTSD symptoms. It was widely used historically but lacks empirical support and may interfere with natural recovery processes. Evidence-based PTSD treatments include: Prolonged Exposure, CPT, EMDR, and SSRIs.')">Explanation</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 19</div>
+        <div class="mq-text">A researcher claims: "The prefrontal cortex plays a critical role in both SUD and eating disorders." Describe the shared role of the PFC in these two disorders.</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'In both SUD and eating disorders, the prefrontal cortex (PFC) — responsible for inhibitory control, executive functioning, decision-making, and downregulation of reward pathways — is compromised. In SUD: chronic substance use impairs PFC function, reducing the ability to inhibit substance-seeking behavior despite negative consequences. The PFC normally downregulates nucleus accumbens activity (impulse control). In eating disorders: PFC involved in top-down regulation of eating behavior; in anorexia, extreme dietary restriction reflects both PFC overcontrol and undercontrol (depending on context). In bulimia, loss of control during binges reflects PFC failure to inhibit reward-driven eating. Class notes specifically highlight: "PFC = inhibitory control, executive functioning, decision making, regulation, downregulation of reward pathways" as shared in SUD and EDs.')">Click to reveal answer</div>
+      </div>
+
+      <div class="mock-q">
+        <div class="mq-num">QUESTION 20</div>
+        <div class="mq-text">Across all eating disorders (anorexia, bulimia, BED), what is the single most reliable sociocultural predictor of eating disorder onset according to prospective research?</div>
+        <div class="mq-type">Short answer</div>
+        <div class="mock-answer-area" onclick="toggleMockAnswer(this, 'Body dissatisfaction — the single strongest predictor of eating disorder onset in prospective studies. The causal chain: sociocultural pressure to be thin → body dissatisfaction → dieting → dietary restraint → binge/purge cycle (bulimia) OR restriction spiral (anorexia). Being overweight + body dissatisfaction creates the highest combined risk. Preoccupation with being thin or pressure to be thin predicts increased body dissatisfaction in adolescent girls, which in turn predicts eating pathology and negative emotions (Stice, 2001, 2022).')">Click to reveal answer</div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end mock exam -->
+
+</main>
+
+<script>
+// ── TAB SWITCHING ──────────────────────────
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── ACCORDION ─────────────────────────────
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  item.classList.toggle('open');
+}
+
+// ── DISORDER FILTER ────────────────────────
+function filterDisorders(category, btn) {
+  document.querySelectorAll('.snav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    if (category === 'all' || item.dataset.category === category) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// ── VIGNETTE REVEAL ────────────────────────
+function revealAnswer(btn) {
+  const ans = btn.nextElementSibling;
+  ans.style.display = 'block';
+  btn.style.display = 'none';
+}
+
+// ── MOCK EXAM ANSWERS ─────────────────────
+function toggleMockAnswer(el, text) {
+  if (!el.classList.contains('revealed')) {
+    el.classList.add('revealed');
+    el.textContent = text;
+  }
+}
+
+function selectMockMC(el, correct) {
+  const parent = el.parentElement;
+  if (parent.dataset.answered) return;
+  parent.dataset.answered = 'true';
+  el.classList.add(correct ? 'correct-ans' : 'wrong-ans');
+  if (!correct) {
+    parent.querySelectorAll('.mock-mc-opt').forEach(opt => {
+      if (opt.dataset.correct !== 'false') {
+        // find correct one (the one that would be called with true)
+      }
+    });
+  }
+}
+
+// ── QUIZ DATA ──────────────────────────────
+const quizData = [
+  { q: "Which brain pathway is activated by nearly ALL substances of abuse?", opts: ["Mesolimbic dopamine pathway","Mesocortical serotonin pathway","Corticospinal motor pathway","Hypothalamic-pituitary axis"], ans: 0, exp: "Nearly all drugs (alcohol, opioids, stimulants, cannabis) stimulate the mesolimbic dopamine pathway (VTA → nucleus accumbens), producing reward/pleasure.", cat: "SUD" },
+  { q: "A person with anorexia nervosa has a BMI of 14.8 and insists she is 'still fat.' Which DSM criterion does this illustrate?", opts: ["Restriction of behaviors promoting healthy weight","Intense fear of gaining weight","Distorted body image / sense of body shape","Failure to fulfill role obligations"], ans: 2, exp: "Distorted body image — believing oneself to be fat or overweight despite objective evidence of severely low weight. One of three required criteria for AN.", cat: "ED" },
+  { q: "The incentive-sensitization theory of addiction (Robinson & Berridge) proposes that over time:", opts: ["Liking increases while wanting decreases","Both liking and wanting decrease equally","Wanting remains intense while liking decreases","The two are unrelated to dopamine"], ans: 2, exp: "Wanting (craving, driven by dopamine) remains very intense while liking (pleasure from the drug) decreases. This explains why people crave substances they no longer enjoy.", cat: "SUD" },
+  { q: "What is the estimated heritability of schizophrenia?", opts: ["0.20–0.30","0.40–0.50","0.50–0.65","0.77–0.81"], ans: 3, exp: "Schizophrenia has a heritability of 0.77–0.81, the highest of the major psychiatric disorders. MZ concordance is ~50%, confirming environmental factors also matter.", cat: "Schizophrenia" },
+  { q: "Mowrer's two-factor model is relevant to which of the following disorders?", opts: ["OCD only","Anxiety disorders only","PTSD only","Anxiety disorders, OCD, and PTSD"], ans: 3, exp: "Mowrer's two-factor model (classical conditioning acquires fear; operant conditioning/avoidance maintains it) applies to all anxiety disorders, OCD, and PTSD — all involve conditioned fear that is hard to extinguish.", cat: "Anxiety/OCD/PTSD" },
+  { q: "In cognitive-behavioral models of OCD, 'thought-action fusion' refers to:", opts: ["Believing compulsions will prevent feared outcomes","Believing that thinking about doing something harmful makes it as bad as doing it","The merging of obsessive thoughts with automatic behavioral responses","The belief that one is personally responsible for preventing harm"], ans: 1, exp: "Thought-action fusion: the belief that merely thinking about a harmful act is morally equivalent to doing it. This catastrophizes intrusive thoughts and drives compulsive neutralizing behaviors.", cat: "OCD" },
+  { q: "Which sociocultural factor uniquely elevates schizophrenia risk (NOT seen for eating disorders, anxiety, or SUD)?", opts: ["Poverty","Childhood trauma","Urbanicity (living in cities)","Peer influence"], ans: 2, exp: "Urbanicity independently triples schizophrenia risk, even after controlling for SES. Migration is another unique risk factor (3–4×). These are not significant risk factors for ED, anxiety, or SUD.", cat: "Schizophrenia" },
+  { q: "The evidence-based treatment that specifically prevents compulsive responses to obsessional triggers is:", opts: ["CBT with cognitive restructuring only","Prolonged exposure therapy","Exposure and Response Prevention (ERP)","Systematic desensitization"], ans: 2, exp: "ERP — the person is exposed to obsessional triggers AND prevented from performing compulsive rituals. This extinguishes the conditioned anxiety and breaks the negative reinforcement cycle.", cat: "OCD" },
+  { q: "Compared to anorexia nervosa, bulimia nervosa is:", opts: ["More common in non-Western cultures","Less responsive to SSRIs","More responsive to SSRIs and more tied to sociocultural pressures in developed countries","Associated with lower heritability"], ans: 2, exp: "Bulimia has more evidence for SSRI treatment than anorexia. Bulimia prevalence is higher in developed, industrialized cultures and more tied to the thin ideal, while anorexia prevalence is more consistent across cultures.", cat: "ED" },
+  { q: "What is the primary pharmacological treatment for opioid use disorder?", opts: ["Disulfiram (Antabuse)","Buprenorphine (Suboxone) or methadone (MAT)","SSRIs","Lithium"], ans: 1, exp: "Medication-Assisted Treatment (MAT): buprenorphine (partial opioid agonist — Suboxone/Subutex) and methadone (full opioid agonist) reduce cravings and block withdrawal. Naltrexone (Vivitrol) blocks opioid receptors. These are first-line for opioid use disorder.", cat: "SUD" },
+  { q: "A person develops PTSD after a car accident. What brain structure's dysfunction specifically impairs their ability to store the trauma as a 'past event,' causing it to feel like it's happening now?", opts: ["Amygdala","Orbitofrontal cortex","Hippocampus","Caudate nucleus"], ans: 2, exp: "Hippocampal dysfunction in PTSD impairs contextual memory processing — the hippocampus is supposed to tag memories as 'past.' When hippocampal function is impaired, trauma memories resurface without temporal context (flashbacks feel like 'now').", cat: "PTSD" },
+  { q: "The shared primary psychological risk factor across SUD, eating disorders, MDD, and anxiety disorders is:", opts: ["Perfectionism","Negative affect / low self-esteem","Impaired executive functioning","Fear of negative evaluation"], ans: 1, exp: "Negative affect / low self-esteem is the primary transdiagnostic psychological risk factor across all major disorder clusters. Class notes explicitly state this is the #1 risk factor for eating disorders, and it is central to SUD (emotion regulation), MDD, and anxiety.", cat: "Shared" },
+  { q: "Which eating disorder has the highest mortality rate of any psychiatric disorder?", opts: ["Bulimia nervosa","Binge eating disorder","Anorexia nervosa","Avoidant/restrictive food intake disorder"], ans: 2, exp: "Anorexia nervosa has the highest mortality rate of any psychiatric disorder, due to medical complications (cardiac, metabolic, renal) and high suicide risk.", cat: "ED" },
+  { q: "Contingency management for SUD works by:", opts: ["Blocking dopamine receptors to reduce pleasure from drugs","Providing vouchers for substance-free behavior verified by urine screens","Exposing patients to drug cues to extinguish cravings","Teaching patients that cravings will pass without acting on them"], ans: 1, exp: "Contingency management uses operant conditioning: vouchers or rewards are provided for drug-free behavior (confirmed by urine tests). This reinforces abstinence behaviors directly.", cat: "SUD" },
+  { q: "A woman with anorexia feels a sense of 'power and control' when she successfully restricts eating. This represents:", opts: ["Negative reinforcement — restriction removes anxiety","Positive reinforcement — restriction produces a rewarding sense of mastery","Punishment — restriction removes the pleasure of eating","Classical conditioning of hunger to disgust"], ans: 1, exp: "Positive reinforcement: the restriction behavior is reinforced by the rewarding feeling of power/control. Class notes explicitly state: 'anorexia behaviors are reinforced positively (feeling of power, weight loss, etc. positively reinforces the starvation).'", cat: "ED" },
+  { q: "The 'flushing response' in some East Asian individuals provides protection against alcohol use disorder via:", opts: ["Slower alcohol absorption from the gut","Genetic mutations in ADH enzymes producing aversive acetaldehyde accumulation","Culturally learned avoidance of alcohol","Lower baseline dopamine sensitivity"], ans: 1, exp: "Mutations in ADH2/ADH3 genes cause alcohol dehydrogenase to rapidly convert alcohol to acetaldehyde faster than ALDH can clear it → acetaldehyde buildup → flushing, nausea, rapid heart rate (aversive). ~75% of East Asians experience this protective response.", cat: "SUD" },
+  { q: "Disulfiram (Antabuse) treats alcohol use disorder by:", opts: ["Blocking opioid receptors to reduce the rewarding effects of alcohol","Creating a severely aversive reaction when alcohol is consumed","Reducing GABA activity to decrease sedation","Stimulating serotonin receptors to improve mood"], ans: 1, exp: "Disulfiram inhibits ALDH (aldehyde dehydrogenase), causing acetaldehyde to accumulate when alcohol is consumed → nausea, flushing, rapid heart rate. It uses classical conditioning (aversive) to discourage drinking. Adherence is a significant challenge.", cat: "SUD" },
+  { q: "Prolonged Exposure (PE) for PTSD differs from standard exposure therapy for anxiety disorders because:", opts: ["PE uses imaginal exposure while anxiety exposure never does","PE specifically includes exposure to trauma memories AND in vivo exposure to trauma reminders, rather than only feared external situations","PE requires no response prevention component","PE is only effective for combat-related PTSD"], ans: 1, exp: "PE targets both the trauma memory itself (imaginal exposure — recounting the trauma repeatedly) AND in vivo exposure to trauma reminders (e.g., avoided places/situations). Standard anxiety exposure targets feared external situations without the narrative trauma processing component.", cat: "PTSD" },
+  { q: "Which statement about the genetics of eating disorders is CORRECT?", opts: ["Bulimia has heritability of ~0.20, indicating mostly environmental cause","Anorexia heritability ranges from 0.48 to 0.74","Genetic factors account for over 90% of variance in eating disorders","BED has no demonstrable heritability"], ans: 1, exp: "Anorexia nervosa heritability: 0.48–0.74. Bulimia: 0.55–0.62. For bulimia, 42% genetic and 58% unique environmental variance. Family studies show relatives of BED patients have 20% BED prevalence vs. 9% in comparison families.", cat: "ED" },
+  { q: "What is the primary evidence-based psychological treatment for adolescent anorexia nervosa?", opts: ["CBT with cognitive restructuring","Family-Based Therapy (Maudsley approach)","Dialectical Behavior Therapy (DBT)","Interpersonal Therapy (IPT)"], ans: 1, exp: "Family-Based Therapy (FBT/Maudsley): parents take charge of refeeding and are actively involved in treatment. This is the most evidence-based approach for adolescent anorexia. Weight stabilization/restoration is the first priority before psychological work can be effective.", cat: "ED" },
+  { q: "Which neurotransmitter system is the PRIMARY target of antipsychotic medications used to treat schizophrenia?", opts: ["Serotonin (5-HT)","GABA","Glutamate","Dopamine (D2 receptors)"], ans: 3, exp: "Antipsychotics (both first and second generation) work primarily by blocking D2 dopamine receptors. This reduces mesolimbic dopamine overactivity, which is linked to positive symptoms (hallucinations, delusions). Second-generation also block serotonin receptors.", cat: "Schizophrenia" },
+  { q: "Tardive dyskinesia is a side effect of long-term antipsychotic use characterized by:", opts: ["Extreme sedation and weight gain","Involuntary repetitive movements of the tongue, face, and jaw","Sudden cardiac death","Severe obsessive-compulsive symptoms"], ans: 1, exp: "Tardive dyskinesia (TD): chronic involuntary movements including tongue wiggling, lip smacking, grimacing, uncontrolled jaw movements. More common with first-generation antipsychotics (FGAs). Second-generation antipsychotics carry lower (but not zero) TD risk.", cat: "Schizophrenia" },
+  { q: "Expressed Emotion (EE) in schizophrenia refers to:", opts: ["The tendency of people with schizophrenia to display flat/blunted affect","Critical, hostile, or emotionally over-involved family communication that predicts relapse","The emotional content of hallucinations and delusions","Patients' ability to express emotions in therapy"], ans: 1, exp: "Expressed Emotion (EE): family communication characterized by criticism, hostility, and/or emotional over-involvement. High EE predicts higher relapse rates in schizophrenia. Reducing EE through family therapy significantly reduces relapses.", cat: "Schizophrenia" },
+  { q: "Social support after a traumatic event is:", opts: ["Unrelated to PTSD development","A significant risk factor for developing PTSD","Protective against PTSD development","Only helpful if provided by mental health professionals"], ans: 2, exp: "Social support is a robust protective factor against developing PTSD. Type of trauma matters more than social support (human-caused > natural disasters; sexual/intimate partner violence = highest risk), but social support is one of the few modifiable protective factors.", cat: "PTSD" },
+  { q: "A new student argues 'binge eating disorder is just bulimia without the purging.' What is the key correction?", opts: ["BED involves purging but is less severe than bulimia","BED involves no purging OR fasting/excessive exercise; bulimia requires compensatory behaviors","BED and bulimia are the same diagnosis with different severity","BED only affects obese individuals while bulimia affects normal-weight individuals"], ans: 1, exp: "BED: recurrent binges with NO compensatory behaviors (no purging, fasting, or excessive exercise). Bulimia: binges + compensatory behaviors. Most BED individuals are obese. Not all obese individuals have BED — only those with loss-of-control binge episodes qualify.", cat: "ED" },
+  { q: "According to textbook notes, which group of college students has the highest rates of alcohol consumption?", opts: ["Graduate students","Community college students","4-year college undergraduates (18–22 year olds)","Students in STEM programs"], ans: 2, exp: "College students (4-year undergraduates) drink the most alcohol — per class notes, college students have peak alcohol use rates compared to peers who don't attend college. Social norms, availability, peer culture, and emerging adult independence all contribute.", cat: "SUD" },
+  { q: "In the treatment of bulimia, which medication class has FDA approval?", opts: ["Antipsychotics (quetiapine)","SSRIs (especially fluoxetine at high dose)","Mood stabilizers (lithium)","Opioid antagonists (naltrexone)"], ans: 1, exp: "Fluoxetine (Prozac) at high doses (60mg/day) is FDA-approved for bulimia nervosa. SSRIs are first-line pharmacological treatment. Note: SSRIs are less effective for anorexia and have limited evidence for BED.", cat: "ED" },
+  { q: "The delay discounting concept in SUD refers to:", opts: ["Time delay between last drug use and craving onset","Tendency to prefer smaller immediate rewards over larger delayed rewards (impulsivity)","Decreased pleasure from drugs over time due to tolerance","Delayed withdrawal symptoms appearing hours after last use"], ans: 1, exp: "Delay discounting (impulsivity): valuing immediate gratification over larger future rewards. The marshmallow test measures this — children who couldn't wait for two marshmallows show higher SUD risk. Class notes explicitly list 'valuing short-term over long-term (delayed satisfaction)' as a key SUD risk factor.", cat: "SUD" },
+  { q: "A key difference between the cognitive model of OCD vs. eating disorders (anorexia) is:", opts: ["OCD involves more genetic factors","OCD obsessions are ego-syntonic while anorexia preoccupations are ego-dystonic","OCD obsessions are ego-dystonic (unwanted/disturbing) while anorexia's preoccupations are ego-syntonic (valued/desired)","There is no cognitive difference; both are maintained by pure negative reinforcement"], ans: 2, exp: "OCD obsessions are ego-DYSTONIC — the person recognizes them as irrational and unwanted. Anorexia preoccupations with thinness are ego-SYNTONIC — the patient values and identifies with her desire for thinness; it feels aligned with her goals. This is why patients with AN are often more treatment-resistant — they don't see the problem.", cat: "ED/OCD" },
+  { q: "Which treatment approach is NOT considered helpful and may increase PTSD risk after trauma?", opts: ["Prolonged Exposure (PE)","Critical Incident Stress Briefing (CISB)","Cognitive Processing Therapy (CPT)","Social support from friends and family"], ans: 1, exp: "CISB (Critical Incident Stress Briefing) — a single-session group debriefing model — has no evidence of effectiveness and may increase PTSD risk. It was widely used in emergency services but research (including RCTs) failed to show benefit. Evidence-based treatments: PE, CPT, EMDR.", cat: "PTSD" },
+  { q: "Which of the following is a SHARED brain region involved in both SUD and eating disorders (per class notes)?", opts: ["Caudate nucleus","Lateral hypothalamus","Prefrontal cortex, amygdala, and nucleus accumbens","Orbitofrontal cortex and visual processing cortex"], ans: 2, exp: "Per class notes: 'Prefrontal cortex (inhibitory control, executive functioning, decision making, regulation, downregulation of reward pathways), amygdala (salience), and nucleus accumbens (dopamine)' are shared in SUD and eating disorders.", cat: "Shared" },
+  { q: "Anorexia nervosa has a more consistent prevalence across cultures than bulimia. What does this suggest?", opts: ["Anorexia has stronger genetic and biological factors; bulimia is more influenced by sociocultural factors (thin ideal in developed nations)","Anorexia is easier to diagnose cross-culturally","Bulimia is underdiagnosed in developing nations","Genetic factors are more important for bulimia"], ans: 0, exp: "Anorexia's consistent cross-cultural prevalence (including in non-Western cultures) suggests stronger biological/genetic underpinnings. Bulimia's higher prevalence in developed, industrialized cultures suggests sociocultural factors (thin ideal, food availability for bingeing, media) play a larger role.", cat: "ED" },
+  { q: "A patient with OCD says 'I know my hands aren't dirty, but I still have to wash them 20 times.' This illustrates what feature of OCD?", opts: ["Ego-syntonic cognitions","Thought-action fusion","Ego-dystonic obsessions — person recognizes irrationality but cannot resist","Delusional disorder"], ans: 2, exp: "Ego-dystonic: the person recognizes the thought/urge as irrational or excessive (unlike psychosis), yet cannot resist the compulsion. This is a defining feature of OCD and helps distinguish it from psychosis (where delusions are believed) and from anorexia (where thin-ideal beliefs are ego-syntonic).", cat: "OCD" },
+  { q: "What is the proposed mechanism by which cannabinoid use in adolescence increases schizophrenia risk?", opts: ["Cannabis directly destroys dopamine neurons in the mesolimbic pathway","THC overstimulates the mesolimbic dopamine system and endocannabinoid system during a critical developmental window, potentially triggering psychosis in genetically vulnerable individuals","Cannabis causes structural brain damage visible on MRI in 100% of users","Cannabis depletes serotonin, causing psychotic symptoms"], ans: 1, exp: "THC activates the endocannabinoid system (CB1 receptors) and indirectly stimulates the mesolimbic dopamine pathway. During adolescence, when the brain (especially PFC) is still developing, this disruption of dopamine signaling in genetically predisposed individuals can increase schizophrenia risk significantly.", cat: "Schizophrenia" },
+  { q: "Prospective studies on eating disorders have identified which factor as the strongest predictor of eating disorder onset?", opts: ["Low family income","Body dissatisfaction","Perfectionism","Having a parent with an eating disorder"], ans: 1, exp: "Body dissatisfaction is the single strongest prospective predictor of eating disorder onset. The chain: sociocultural thin ideal → body dissatisfaction → dieting → dietary restraint → binge-purge cycle or restriction escalation.", cat: "ED" },
+  { q: "What does the term 'addiction' technically refer to in DSM-5-TR?", opts: ["A specific diagnosis for severe substance use disorder","A legal term not used in DSM-5-TR; DSM uses 'substance use disorder'; 'addiction' informally refers to severe SUD","Any substance use that causes medical problems","The combination of tolerance plus withdrawal"], ans: 1, exp: "The term 'addiction' does not appear in DSM-5-TR. DSM uses 'substance use disorder' with severity specifiers (mild, moderate, severe). 'Addiction' is a colloquial term that typically refers to severe SUD. This distinction matters for reducing stigma.", cat: "SUD" },
+  { q: "The hypothalamus is particularly relevant to eating disorders because:", opts: ["It regulates dopamine release in the nucleus accumbens","It regulates hunger and satiety, and its dysfunction contributes to disturbed eating in anorexia","It is responsible for the fear conditioning underlying binge episodes","It processes visual body image information"], ans: 1, exp: "The hypothalamus regulates hunger, satiety, and related hormones (cortisol, estrogen, thyroid). In anorexia, hypothalamic function is disrupted, leading to hormonal changes (amenorrhea, cortisol elevation, thyroid changes). Leptin (satiety hormone) and ghrelin (hunger hormone) are also involved.", cat: "ED" },
+  { q: "What is the key difference between ASD (Acute Stress Disorder) and PTSD?", opts: ["ASD involves avoidance while PTSD does not","ASD is defined by symptoms lasting 3 days to 1 month post-trauma; PTSD requires symptoms lasting 1+ month","ASD only follows human-caused trauma; PTSD can follow any trauma","ASD is more severe than PTSD"], ans: 1, exp: "ASD: same symptom clusters as PTSD but occurs 3 days to 1 month after trauma. PTSD: symptoms persist 1+ month. CBT provided during ASD can prevent progression to PTSD.", cat: "PTSD" },
+  { q: "Which medication is most commonly used as a 'mood stabilizer' for bipolar disorder and has been used for this purpose since the 1970s?", opts: ["Fluoxetine (Prozac)","Lithium","Quetiapine (Seroquel)","Naltrexone"], ans: 1, exp: "Lithium has been the cornerstone mood stabilizer for bipolar disorder for decades. It requires blood level monitoring (narrow therapeutic window, toxicity risk). It reduces both manic episodes and depressive episodes. Anticonvulsants (valproate, lamotrigine) are alternatives.", cat: "Mood" },
+  { q: "A person with bulimia purges to reduce shame after bingeing. The purging temporarily makes them feel less guilty. This maintains the disorder via:", opts: ["Positive reinforcement","Cognitive dissonance reduction","Negative reinforcement — purging removes the aversive feeling of guilt/shame","Classical conditioning to food cues"], ans: 2, exp: "Negative reinforcement: purging removes the aversive internal state (guilt, shame, fear of weight gain) following a binge. This is the core maintaining mechanism of the binge-purge cycle. Class notes: 'feelings of shame about the purging or binges come back — these negatively reinforce the cycle of binging and/or purging.'", cat: "ED" },
+  { q: "Which of the following represents a UNIQUE risk factor for schizophrenia NOT seen as a primary risk factor for SUD or eating disorders?", opts: ["Negative affect and stress","Prenatal infection (e.g., toxoplasma gondii)","Low self-esteem","Peer influence in adolescence"], ans: 1, exp: "Prenatal infections (toxoplasma gondii, influenza, other infections during pregnancy) are established risk factors for schizophrenia. Toxoplasma gondii (from cat litter) is one example cited in the textbook. This biological prenatal exposure is not a primary risk factor for SUD or eating disorders.", cat: "Schizophrenia" }
+];
+
+let quizState = { answers: {}, total: 0, correct: 0 };
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  quizData.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = 'q-' + i;
+    card.innerHTML = `
+      <div class="q-num">Q${i+1} · ${q.cat}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options" id="opts-${i}">
+        ${q.opts.map((o, j) => `
+          <div class="option" onclick="selectOption(${i}, ${j})">
+            <div class="radio" id="radio-${i}-${j}"></div>
+            <span>${String.fromCharCode(65+j)}. ${o}</span>
+          </div>`).join('')}
+      </div>
+      <div class="explanation" id="exp-${i}">${q.exp}</div>
+    `;
+    container.appendChild(card);
+  });
+  updateScore();
+}
+
+function selectOption(qIdx, optIdx) {
+  if (quizState.answers[qIdx] !== undefined) return;
+  quizState.answers[qIdx] = optIdx;
+  const correct = optIdx === quizData[qIdx].ans;
+  if (correct) quizState.correct++;
+  quizState.total++;
+  const card = document.getElementById('q-' + qIdx);
+  card.classList.add(correct ? 'correct' : 'incorrect');
+  const opts = document.querySelectorAll(`#opts-${qIdx} .option`);
+  opts.forEach((opt, j) => {
+    if (j === quizData[qIdx].ans) opt.classList.add('selected-correct');
+    else if (j === optIdx && !correct) opt.classList.add('selected-wrong');
+  });
+  document.getElementById('exp-' + qIdx).style.display = 'block';
+  updateScore();
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = `Score: ${quizState.correct} / ${quizState.total}`;
+  const pct = quizData.length > 0 ? (quizState.total / quizData.length) * 100 : 0;
+  document.getElementById('quiz-progress').style.width = pct + '%';
+}
+
+function resetQuiz() {
+  quizState = { answers: {}, total: 0, correct: 0 };
+  buildQuiz();
+}
+
+// ── FLASHCARD DATA ─────────────────────────
+const cards = [
+  { term: "Incentive-Sensitization Theory", def: "Robinson & Berridge: dopamine system becomes supersensitive to drug cues. 'Wanting' (craving) remains intense while 'liking' (pleasure from drug) decreases over time. Explains why people crave drugs they no longer enjoy.", cat: "sud" },
+  { term: "Mesolimbic Dopamine Pathway", def: "VTA → nucleus accumbens pathway. The brain's primary reward/pleasure circuit. Activated by virtually all substances of abuse. Also involved in eating and other natural rewards.", cat: "sud" },
+  { term: "Tolerance", def: "Need for markedly increased amounts of a substance to achieve desired effect OR diminished effect with the same amount. One of 11 DSM-5-TR SUD criteria.", cat: "sud" },
+  { term: "Withdrawal", def: "Characteristic negative physical/psychological syndrome when substance is reduced or stopped. Varies by substance. Alcohol and benzodiazepine withdrawal can be life-threatening.", cat: "sud" },
+  { term: "Contingency Management", def: "SUD treatment: vouchers or rewards provided for substance-free behaviors verified by urine screens. Based on operant conditioning — directly reinforcing abstinence.", cat: "sud" },
+  { term: "Medication-Assisted Treatment (MAT)", def: "For opioid use disorder: buprenorphine (Suboxone), methadone, or naltrexone (Vivitrol). Reduces cravings, prevents withdrawal, blocks euphoric effects. Combined with psychotherapy for best outcomes.", cat: "sud" },
+  { term: "Disulfiram (Antabuse)", def: "Alcohol use disorder medication. Inhibits ALDH enzyme → acetaldehyde accumulates when alcohol is consumed → severe nausea, flushing, heart racing. Creates aversive conditioning against drinking.", cat: "sud" },
+  { term: "Naltrexone (Vivitrol)", def: "Opioid receptor antagonist. Blocks euphoric effects of alcohol and opioids → reduces cravings. Available as monthly injectable (better adherence) or daily pill. Used for both AUD and OUD.", cat: "sud" },
+  { term: "Delay Discounting", def: "Tendency to prefer smaller immediate rewards over larger delayed rewards. Key psychological risk factor for SUD. Measured by 'marshmallow test' analogs. Reflects impulsivity in decision-making.", cat: "sud" },
+  { term: "Anorexia Nervosa", def: "Restriction → significantly low weight (BMI <18.5) + intense fear of weight gain + distorted body image. Highest mortality of any psychiatric disorder. 90–95% female. Ego-syntonic — behaviors feel valued/meaningful.", cat: "ed" },
+  { term: "Bulimia Nervosa", def: "Recurrent binges (large amounts, loss of control) + compensatory behaviors (purging, fasting, excessive exercise). ≥1×/week for 3 months. Normal or above-normal weight. Higher in developed cultures.", cat: "ed" },
+  { term: "Binge Eating Disorder (BED)", def: "Recurrent binges with NO compensatory behaviors. Associated with obesity. Marked distress. Most prevalent eating disorder. More equal sex distribution than AN/BN. BMI criteria for obesity >30.", cat: "ed" },
+  { term: "Body Dissatisfaction", def: "Single strongest prospective predictor of eating disorder onset. The gap between ideal body image and perceived body image. Driven by sociocultural thin ideal, media, and peer/family influences.", cat: "ed" },
+  { term: "CBT Model of Bulimia (Fairburn)", def: "Low self-esteem + thin ideal → overvaluation of weight/shape → dietary restriction → binge (triggered by negative emotion) → purging (negative reinforcement) → shame → repeat cycle.", cat: "ed" },
+  { term: "Family-Based Therapy (FBT/Maudsley)", def: "Most evidence-based treatment for adolescent anorexia nervosa. Parents take charge of refeeding. Three phases: weight restoration, returning food control to adolescent, establishing healthy identity.", cat: "ed" },
+  { term: "Negative Affect (Transdiagnostic)", def: "The #1 shared psychological risk factor across SUD, eating disorders, MDD, anxiety disorders, OCD, and PTSD. Predicts onset, maintenance, and relapse across all major disorder clusters.", cat: "shared" },
+  { term: "Negative Reinforcement", def: "Maintaining mechanism shared across SUD, eating disorders (bulimia/BED), anxiety disorders, OCD, and PTSD. The behavior (drug use, purging, avoidance, compulsion) removes an aversive state → behavior is reinforced.", cat: "shared" },
+  { term: "Prefrontal Cortex (PFC)", def: "Shared across SUD and eating disorders: responsible for inhibitory control, executive functioning, decision-making, and downregulation of reward pathways. Impaired in both disorders by long-term use/behaviors.", cat: "shared" },
+  { term: "Dopamine System (Shared)", def: "Shared in SUD, eating disorders, schizophrenia. In SUD/EDs: mesolimbic pathway (reward/pleasure). In schizophrenia: excess mesolimbic (positive sx) + insufficient mesocortical (negative sx). Treatment implications differ.", cat: "shared" },
+  { term: "Mowrer's Two-Factor Model", def: "Shared by anxiety disorders, OCD, and PTSD. Factor 1: Classical conditioning acquires fear response. Factor 2: Operant conditioning/avoidance maintains fear (negative reinforcement). Hard to extinguish conditioned fear.", cat: "shared" },
+  { term: "Major Depressive Disorder (MDD)", def: "5+ symptoms for 2+ weeks, including depressed mood or anhedonia. Lifetime prevalence ~16%. Women 2× more likely. Cognitive model (Beck): negative triad (self, world, future). First-line: SSRIs + CBT.", cat: "mood" },
+  { term: "Beck's Negative Cognitive Triad", def: "Core cognitive model of depression: negative views of (1) the self ('I am worthless'), (2) the world ('Everything is bad'), and (3) the future ('Things will never get better'). Activated by stress via depressive schemas.", cat: "mood" },
+  { term: "Bipolar I Disorder", def: "At least one manic episode (7+ days, or any duration if hospitalization needed). Often with depressive episodes. Heritability ~0.85. First-line: lithium. 20–30× suicide risk vs. general population.", cat: "mood" },
+  { term: "Electroconvulsive Therapy (ECT)", def: "Effective for severe, treatment-resistant depression. Brief electrical pulses induce seizure under anesthesia. Memory side effects (usually temporary). Misunderstood but strongly evidence-based.", cat: "mood" },
+  { term: "Generalized Anxiety Disorder (GAD)", def: "Excessive worry about multiple domains, 6+ months, difficult to control. Associated: muscle tension, fatigue, irritability, sleep disturbance, concentration problems. Key cognitive feature: intolerance of uncertainty.", cat: "anxiety" },
+  { term: "Panic Disorder", def: "Recurrent unexpected panic attacks + persistent concern about future attacks OR maladaptive behavioral change. Panic attacks peak within minutes: heart racing, chest pain, dizziness, fear of dying/going crazy.", cat: "anxiety" },
+  { term: "Behavioral Inhibition (BI)", def: "Temperamental trait in childhood: withdrawal, fearfulness, and distress in novel/challenging situations. One of the most robust predictors of later anxiety disorders. Shared genetic basis with anxiety.", cat: "anxiety" },
+  { term: "Exposure Therapy", def: "Gold standard for anxiety disorders. Systematic desensitization (graduated hierarchy) or flooding (intense). Breaks conditioned fear via extinction. Enhanced by D-Cycloserine (NMDA agonist that facilitates extinction learning).", cat: "anxiety" },
+  { term: "OCD — Thought-Action Fusion", def: "Cognitive distortion in OCD: believing that thinking about doing something harmful is morally equivalent to doing it. Leads to catastrophizing intrusive thoughts and compulsive neutralizing (rituals, avoidance).", cat: "ocd" },
+  { term: "ERP (Exposure and Response Prevention)", def: "Gold standard for OCD. Exposure to obsessional triggers + prevention of compulsive response. Unlike anxiety exposure — targets the obsessive thought DIRECTLY and prevents the ritual that would provide temporary relief.", cat: "ocd" },
+  { term: "CSTC Loop", def: "Cortico-Striato-Thalamo-Cortical loop. Hyperactive in OCD. Key structures: orbitofrontal cortex (OFC), caudate nucleus, anterior cingulate cortex, thalamus. Serotonin system dysregulation within this circuit.", cat: "ocd" },
+  { term: "PTSD — NACM Cluster", def: "Negative Alterations in Cognition and Mood: amnesia for aspects of trauma, negative beliefs about self/world, self-blame, persistent negative emotions (fear, horror, guilt), anhedonia, detachment, inability to experience positive emotions.", cat: "ocd" },
+  { term: "Hippocampal Dysfunction (PTSD)", def: "PTSD-specific: hippocampus normally 'tags' memories as past events. Hippocampal dysfunction → trauma memories lose temporal context → flashbacks feel like present danger. Distinguishes PTSD from anxiety disorders.", cat: "ocd" },
+  { term: "Critical Incident Stress Briefing (CISB)", def: "NOT evidence-based; may increase PTSD risk. A single-session group debriefing model historically used after traumas (disasters, combat). Research shows no benefit; may interfere with natural recovery. Avoid after trauma.", cat: "ocd" },
+  { term: "Schizophrenia — Positive Symptoms", def: "Hallucinations (especially auditory), delusions (paranoid, grandiose, referential, somatic), agitation. Mediated by EXCESS dopamine in mesolimbic pathway. Treated by antipsychotics (D2 blockers).", cat: "schiz" },
+  { term: "Schizophrenia — Negative Symptoms", def: "Flat/blunted affect, alogia (poverty of speech), avolition (loss of motivation), anhedonia, social withdrawal. Mediated by INSUFFICIENT dopamine in mesocortical (PFC) pathway. Harder to treat; linked to poor outcomes.", cat: "schiz" },
+  { term: "Dopamine Hypothesis of Schizophrenia", def: "Excess dopamine in mesolimbic pathway → positive symptoms. Insufficient dopamine in mesocortical (PFC) pathway → negative symptoms. Evidence: D2 blockers reduce positive sx; amphetamines (increase dopamine) can cause psychosis.", cat: "schiz" },
+  { term: "Tardive Dyskinesia (TD)", def: "Side effect of chronic antipsychotic use: involuntary repetitive movements — tongue wiggling, lip smacking, grimacing, uncontrolled jaw movements. More common with FGAs. Can be irreversible. Clozapine has lowest TD risk.", cat: "schiz" },
+  { term: "Urbanicity & Migration (Schizophrenia)", def: "Unique sociocultural risk factors for schizophrenia not found in other disorders. Urbanicity: 3× risk if raised in cities (independent of SES). Migration: 3–4× risk. Mechanisms: stress, discrimination, isolation, early-life exposures.", cat: "schiz" },
+  { term: "Expressed Emotion (EE)", def: "Family communication characterized by criticism, hostility, and/or emotional over-involvement. High EE is a strong predictor of schizophrenia relapse. Family therapy targeting EE significantly reduces relapse rates.", cat: "schiz" },
+  { term: "Ego-Dystonic vs. Ego-Syntonic", def: "Ego-DYSTONIC: thoughts feel foreign/unwanted/irrational (OCD obsessions). Ego-SYNTONIC: thoughts feel consistent with self/values (anorexia's thin-ideal; schizophrenia delusions). Key distinction affecting treatment motivation.", cat: "shared" }
+];
+
+let filteredCards = [...cards];
+let cardIdx = 0;
+
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filteredCards = cat === 'all' ? [...cards] : cards.filter(c => c.cat === cat);
+  cardIdx = 0;
+  showCard();
+}
+
+function showCard() {
+  if (filteredCards.length === 0) return;
+  const c = filteredCards[cardIdx];
+  document.getElementById('card-term').textContent = c.term;
+  document.getElementById('card-category').textContent = c.cat.toUpperCase();
+  document.getElementById('card-def').textContent = c.def;
+  document.getElementById('card-counter').textContent = `${cardIdx + 1} / ${filteredCards.length}`;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('prev-btn').disabled = cardIdx === 0;
+  document.getElementById('next-btn').disabled = cardIdx === filteredCards.length - 1;
+}
+
+function flipCard() {
+  document.getElementById('flashcard').classList.toggle('flipped');
+}
+
+function prevCard() {
+  if (cardIdx > 0) { cardIdx--; showCard(); }
+}
+
+function nextCard() {
+  if (cardIdx < filteredCards.length - 1) { cardIdx++; showCard(); }
+}
+
+function shuffleCards() {
+  for (let i = filteredCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
+  }
+  cardIdx = 0;
+  showCard();
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  const fc = document.getElementById('tab-flashcards');
+  if (!fc.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') prevCard();
+  else if (e.key === 'ArrowRight') nextCard();
+  else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+});
+
+// Mock exam answer toggle already handled inline
+function selectMockMC(el, correct) {
+  const parent = el.closest('.mock-mc-options');
+  if (parent.dataset.answered) return;
+  parent.dataset.answered = 'true';
+  el.classList.add(correct ? 'correct-ans' : 'wrong-ans');
+  if (!correct) {
+    parent.querySelectorAll('.mock-mc-opt').forEach(opt => {
+      if (opt.dataset.correct === 'true') opt.classList.add('correct-ans');
+    });
+  }
+}
+
+// ── INIT ────────────────────────────────────
+buildQuiz();
+showCard();
+</script>
+</body>
+</html>
